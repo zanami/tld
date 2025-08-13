@@ -1,7 +1,8 @@
 <?php
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-<?CModule::IncludeModule("aspro.scorp")?>
+CModule::IncludeModule("aspro.scorp");
+
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
 }
