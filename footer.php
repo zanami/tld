@@ -124,7 +124,7 @@ Loc::loadMessages(__FILE__);
 $APPLICATION->ShowProperty('BeforeBodyClose');
 $APPLICATION->ShowViewContent('BeforeBodyClose');
 
-  <script src="<?= SITE_TEMPLATE_PATH ?>assets/js/main.js"></script>
+  <script src="<?= SITE_TEMPLATE_PATH ?>/assets/js/main.js"></script>
 </body>
 
 </html>

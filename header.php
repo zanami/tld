@@ -1,7 +1,7 @@
 <?php
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-
+<?CModule::IncludeModule("aspro.scorp")?>
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
 }
@@ -23,15 +23,15 @@ if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
     <title><? $APPLICATION->ShowTitle() ?></title>
     <link
       rel="shortcut icon"
-      href="<?= SITE_TEMPLATE_PATH ?>assets/images/favicon.png"
+      href="<?= SITE_TEMPLATE_PATH ?>/assets/images/favicon.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>assets/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>assets/css/animate.css" />
-    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>src/css/tailwind.css" />
+    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>/assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>/assets/css/animate.css" />
+    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>/src/css/tailwind.css" />
 
     <!-- ==== WOW JS ==== -->
-    <script src="<?= SITE_TEMPLATE_PATH ?>assets/js/wow.min.js"></script>
+    <script src="<?= SITE_TEMPLATE_PATH ?>/assets/js/wow.min.js"></script>
     <script>
       new WOW().init();
     </script>
@@ -67,12 +67,12 @@ if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
         <div class="max-w-full px-4 w-60">
           <a href="<?= SITE_DIR ?>" class="block w-full py-5 navbar-logo">
             <img
-              src="<?= SITE_TEMPLATE_PATH ?>assets/images/logo/logo.svg"
+              src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
               alt="logo"
               class="w-full dark:hidden"
             />
             <img
-              src="<?= SITE_TEMPLATE_PATH ?>assets/images/logo/logo-white.svg"
+              src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo-white.svg"
               alt="logo"
               class="hidden w-full dark:block"
             />
