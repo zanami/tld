@@ -24,7 +24,7 @@ if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
     <title><? $APPLICATION->ShowTitle() ?></title>
     <link
       rel="shortcut icon"
-      href="<?= SITE_TEMPLATE_PATH ?>/assets/images/favicon.png"
+      href="<?= SITE_TEMPLATE_PATH ?>/assets/images/favicon.ico"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>/assets/css/swiper-bundle.min.css" />
