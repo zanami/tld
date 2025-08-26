@@ -18,9 +18,9 @@ $frame->setAnimation(true);
 	$bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 	?>
 	<div class="front-catalog">
-        <div class="mb-8">
-            <h3 class="mt-10 mb-4 text-5xl">Техника на складе</h3>
-            <p class="mb-2 text-2xl text-gray-400">Купить вилочные погрузчики UN Forklift 1−10 т (дизель/бензин/электро) и складскую технику XILIN. В наличии готовые решения для вашего склада с быстрой отгрузкой!</p>
+        <div class="mb-12 container">
+            <h3 class="mt-12 mb-4 text-5xl">Техника на складе</h3>
+            <p class="mb-2 text-2xl text-center  text-gray-400">Купить вилочные погрузчики UN Forklift 1−10 т (дизель/бензин/электро) и складскую технику XILIN. В наличии готовые решения для вашего склада с быстрой отгрузкой!</p>
         </div>
 		<?/*$APPLICATION->IncludeComponent(
 			"bitrix:main.include",
