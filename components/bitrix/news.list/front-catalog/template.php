@@ -16,7 +16,7 @@ $frame->setAnimation(true);
             <h3 class="mt-12 mb-4 text-5xl">Техника на складе</h3>
             <p class="mb-2 text-2xl text-gray-400">Купить вилочные погрузчики UN Forklift 1−10 т (дизель/бензин/электро) и складскую технику XILIN. В наличии готовые решения для вашего склада с быстрой отгрузкой!</p>
         </div>
-        <ul class="container mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" itemscope itemtype="https://schema.org/ItemList">
+        <ul class="container mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" itemscope itemtype="https://schema.org/ItemList">
             <?
             $i = 0;
             foreach($arResult["ITEMS"] as $i => $arItem):?>
@@ -49,11 +49,11 @@ $frame->setAnimation(true);
                             <?endif;?>
                         <?endif;?>
 
-                        <div class="p-5 space-y-3">
+                        <div class="tracking-wide">
                             <?// element name?>
                             <?if(strlen($arItem['FIELDS']['NAME'])):?>
                                 <?if($bDetailLink):?><a href="<?=$arItem['DETAIL_PAGE_URL']?>" itemprop="url"><?endif;?>
-                                <h3 itemprop="name" class="mb-4 text-lg/6 font-bold text-gray-900"><?=$arItem['NAME']?></h3>
+                                <h3 itemprop="name" class="mb-4 text-xl/7 font-bold text-gray-900"><?=$arItem['NAME']?></h3>
                                 <?if($bDetailLink):?></a><?endif;?>
                             <?endif;?>
 
@@ -74,7 +74,7 @@ $frame->setAnimation(true);
 
                             <?// element preview text?>
                             <?if(strlen($arItem['FIELDS']['PREVIEW_TEXT'])):?>
-                                <div class="text-gray-600 text-xl/6 font-light" itemprop="description">
+                                <div class="text-gray-600 text-xl/8 font-light" itemprop="description">
                                     <?if($arItem['PREVIEW_TEXT_TYPE'] == 'text'):?>
                                         <p><?=$arItem['FIELDS']['PREVIEW_TEXT']?></p>
                                     <?else:?>
