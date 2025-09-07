@@ -36,14 +36,14 @@ $frame->setAnimation(true);
                 // use order button?
                 $bOrderButton = $arItem["DISPLAY_PROPERTIES"]["FORM_ORDER"]["VALUE_XML_ID"] == "YES";
                 ?>
-                <li class="bg-white rounded-xl shadow-md overflow-hidden">
+                <li class="overflow-hidden">
                     <div class="item<?=($bShowImage ? '' : ' wti')?>" id="<?=$this->GetEditAreaId($arItem['ID'])?>" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
                         <meta itemprop="position" content="<?=$i++?>" />
                         <?if($bShowImage):?>
                             <?if($bDetailLink):?><a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="blink">
                             <?elseif($imageDetailSrc):?><a href="<?=$imageDetailSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" class="img-inside fancybox" itemprop="url">
                             <?endif;?>
-                                <img class="w-full h-56 object-cover" loading="lazy" src="<?=$imageSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" itemprop="image" />
+                                <img class="w-full rounded-3xl h-56 object-cover mb-8" loading="lazy" src="<?=$imageSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" itemprop="image" />
                             <?if($bDetailLink):?></a>
                             <?elseif($imageDetailSrc):?><span class="zoom"><i class="fa fa-16 fa-white-shadowed fa-search"></i></span></a>
                             <?endif;?>
@@ -53,30 +53,30 @@ $frame->setAnimation(true);
                             <?// element name?>
                             <?if(strlen($arItem['FIELDS']['NAME'])):?>
                                 <?if($bDetailLink):?><a href="<?=$arItem['DETAIL_PAGE_URL']?>" itemprop="url"><?endif;?>
-                                <h3 itemprop="name" class="ext-lg font-bold text-gray-900"><?=$arItem['NAME']?></h3>
+                                <h3 itemprop="name" class="mb-4 text-lg/6 font-bold text-gray-900"><?=$arItem['NAME']?></h3>
                                 <?if($bDetailLink):?></a><?endif;?>
                             <?endif;?>
 
                             <?// element section name?>
                             <?if(strlen($arItem['SECTION_NAME'])):?>
-                                <div class="section_name"><?=$arItem['SECTION_NAME']?></div>
+                                <div class="section_name hidden"><?=$arItem['SECTION_NAME']?></div>
                             <?endif;?>
 
                             <?// element status?>
                             <?if(strlen($arItem['DISPLAY_PROPERTIES']['STATUS']['VALUE'])):?>
-                                <span class="label label-<?=$arItem['DISPLAY_PROPERTIES']['STATUS']['VALUE_XML_ID']?>" itemprop="description"><?=$arItem['DISPLAY_PROPERTIES']['STATUS']['VALUE']?></span>
+                                <span class="hidden label label-<?=$arItem['DISPLAY_PROPERTIES']['STATUS']['VALUE_XML_ID']?>" itemprop="description"><?=$arItem['DISPLAY_PROPERTIES']['STATUS']['VALUE']?></span>
                             <?endif;?>
 
                             <?// element article?>
                             <?if(strlen($arItem['DISPLAY_PROPERTIES']['ARTICLE']['VALUE'])):?>
-                                <p class="text-gray-600 text-sm" itemprop="description"><?=GetMessage('S_ARTICLE')?>:&nbsp;<span><?=$arItem['DISPLAY_PROPERTIES']['ARTICLE']['VALUE']?></span></p>
+                                <p class="text-gray-600 text-lg/6" itemprop="description"><?=GetMessage('S_ARTICLE')?>:&nbsp;<span><?=$arItem['DISPLAY_PROPERTIES']['ARTICLE']['VALUE']?></span></p>
                             <?endif;?>
 
                             <?// element preview text?>
                             <?if(strlen($arItem['FIELDS']['PREVIEW_TEXT'])):?>
-                                <div class="text-gray-600 text-sm" itemprop="description">
+                                <div class="text-gray-600 text-xl/6 font-light" itemprop="description">
                                     <?if($arItem['PREVIEW_TEXT_TYPE'] == 'text'):?>
-                                        <?=$arItem['F    IELDS']['PREVIEW_TEXT']?>
+                                        <p><?=$arItem['FIELDS']['PREVIEW_TEXT']?></p>
                                     <?else:?>
                                         <?=$arItem['FIELDS']['PREVIEW_TEXT']?>
                                     <?endif;?>
@@ -86,7 +86,7 @@ $frame->setAnimation(true);
                             <?if(strlen($arItem['DISPLAY_PROPERTIES']['PRICE']['VALUE']) || $bOrderButton):?>
                                 <?// element price?>
                                 <?if(strlen($arItem['DISPLAY_PROPERTIES']['PRICE']['VALUE'])):?>
-                                    <div class="flex items-center gap-2">
+                                    <div class="flex items-center gap-2 mt-4">
                                         <div class="text-xl font-bold text-gray-900">
                                             <span class="price_val"><?=CScorp::FormatPriceShema($arItem['DISPLAY_PROPERTIES']['PRICE']['VALUE'])?></span>
                                         </div>
