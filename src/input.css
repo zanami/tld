@@ -46,6 +46,8 @@
   --shadow-testimonial-btn: 0px 8px 15px 0px rgba(72, 72, 138, 0.08);
   --shadow-1: 0px 1px 3px 0px rgba(166, 175, 195, 0.4);
   --shadow-2: 0px 5px 12px 0px rgba(0, 0, 0, 0.1);
+
+  --font-sans: "Manrope", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 @layer base {
