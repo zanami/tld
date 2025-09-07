@@ -1,5 +1,7 @@
 # Play - Free Tailwind CSS Template for Startup, Apps and SaaS
 
+tailwindcss --input ./src/input.css --output ./src/css/tailwind.css --watch
+
 Play is an open-source and free Tailwind CSS template co-created by TailGrids and UIdeck. This template specially crafted for SaaS, startup, business and software website.
 Play crafted in a way that you can use with almost all sort of web project. This is Tailwind CSS template built using [TailGrids](https://tailgrids.com/) components.
 
