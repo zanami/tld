@@ -112,10 +112,8 @@ $frame->setAnimation(true);
                                     </div>
 
                                     <?if($bOrderButton):?>
-                                        <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
-                                            <?// element order button?>
-                                            <span class="btn btn-default btn-sm pull-right" <?=(strlen(($arItem['DISPLAY_PROPERTIES']['PRICE']['VALUE']) && strlen($arItem['DISPLAY_PROPERTIES']['PRICEOLD']['VALUE'])) ? 'style="margin-top:16px;"' : '')?> data-event="jqm" data-param-id="<?=CCache::$arIBlocks[SITE_ID]["aspro_scorp_form"]["aspro_scorp_order_product"][0]?>" data-product="<?=$arItem["NAME"]?>" data-name="order_product"><?=GetMessage("TO_ORDER")?></span>
-                                        </div>
+                                        <?// element order button?>
+                                        <span class="w-full bg-black text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-800 transition" <?=(strlen(($arItem['DISPLAY_PROPERTIES']['PRICE']['VALUE']) && strlen($arItem['DISPLAY_PROPERTIES']['PRICEOLD']['VALUE'])) ? 'style="margin-top:16px;"' : '')?> data-event="jqm" data-param-id="<?=CCache::$arIBlocks[SITE_ID]["aspro_scorp_form"]["aspro_scorp_order_product"][0]?>" data-product="<?=$arItem["NAME"]?>" data-name="order_product"><?=GetMessage("TO_ORDER")?></span>
                                     <?endif;?>
                                 </div>
                             <?endif;?>
