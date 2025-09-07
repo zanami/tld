@@ -12,11 +12,11 @@ $frame->setAnimation(true);
 	$bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 	?>
 	<div class="front-catalog">
-        <div class="mb-12 container text-center">
+        <div class="mb-12 container mx-auto text-center">
             <h3 class="mt-12 mb-4 text-5xl">Техника на складе</h3>
             <p class="mb-2 text-2xl text-gray-400">Купить вилочные погрузчики UN Forklift 1−10 т (дизель/бензин/электро) и складскую технику XILIN. В наличии готовые решения для вашего склада с быстрой отгрузкой!</p>
         </div>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" itemscope itemtype="https://schema.org/ItemList">
+        <ul class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" itemscope itemtype="https://schema.org/ItemList">
             <?
             $i = 0;
             foreach($arResult["ITEMS"] as $i => $arItem):?>
@@ -53,8 +53,7 @@ $frame->setAnimation(true);
                             <?// element name?>
                             <?if(strlen($arItem['FIELDS']['NAME'])):?>
                                 <?if($bDetailLink):?><a href="<?=$arItem['DETAIL_PAGE_URL']?>" itemprop="url"><?endif;?>
-                                    <h3 itemprop="name" class="ext-lg font-bold text-gray-900"><?=$arItem['NAME']?></h3>
-                                </div>
+                                <h3 itemprop="name" class="ext-lg font-bold text-gray-900"><?=$arItem['NAME']?></h3>
                             <?endif;?>
 
                             <?// element section name?>
