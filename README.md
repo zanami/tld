@@ -1,3 +1,5 @@
+# npm run dev
+
 # Play - Free Tailwind CSS Template for Startup, Apps and SaaS
 
 tailwindcss --input ./src/input.css --output ./src/css/tailwind.css --watch

@@ -16,10 +16,10 @@ Loc::loadMessages(__FILE__);
 				"bitrix:menu",
 				"footer_menu",
 				array(
-					"ROOT_MENU_TYPE" => "bottom",
-					"MAX_LEVEL" => "1",
+					"ROOT_MENU_TYPE" => "footer",
+					"MAX_LEVEL" => "2",
 					"CHILD_MENU_TYPE" => "left",
-					"USE_EXT" => "Y",
+					"USE_EXT" => "N",
 					"MENU_CACHE_TYPE" => "A",
 					"MENU_CACHE_TIME" => "36000000",
 					"MENU_CACHE_USE_GROUPS" => "Y",

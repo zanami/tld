@@ -1,25 +1,125 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-use Bitrix\Main\Localization\Loc;
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
-$this->setFrameMode(true);
+/**
+ * Ожидаем плоский $arResult от компонента и собираем дерево из 2-х уровней:
+ * - DEPTH_LEVEL = 1 — родительский пункт
+ * - DEPTH_LEVEL = 2 — дочерний пункт
+ * Глубже 2 уровня игнорируем для простоты (можно расширить при желании).
+ */
 
-if (empty($arResult)) return;
+$tree = [];
+$parentIndex = -1;
 
-$itemsPerColumn = ceil(count($arResult) / 2);
+foreach ($arResult as $item) {
+    $depth = (int)$item["DEPTH_LEVEL"];
+    if ($depth === 1) {
+        $parentIndex++;
+        $tree[$parentIndex] = [
+            "TEXT" => $item["TEXT"],
+            "LINK" => $item["LINK"],
+            "SELECTED" => !empty($item["SELECTED"]),
+            "PERMISSION" => $item["PERMISSION"],
+            "PARAMS" => $item["PARAMS"] ?? [],
+            "CHILDREN" => [],
+        ];
+    } elseif ($depth === 2 && $parentIndex >= 0) {
+        $tree[$parentIndex]["CHILDREN"][] = [
+            "TEXT" => $item["TEXT"],
+            "LINK" => $item["LINK"],
+            "SELECTED" => !empty($item["SELECTED"]),
+            "PERMISSION" => $item["PERMISSION"],
+            "PARAMS" => $item["PARAMS"] ?? [],
+        ];
+    }
+}
+
+if (empty($tree)) return;
+
+// вспомогалки
+$esc = static function ($s) {
+    return htmlspecialcharsbx((string)$s);
+};
+$isExternal = static function ($url) {
+    // простая эвристика для внешних ссылок
+    return (bool)preg_match('~^https?://~i', (string)$url);
+};
 ?>
 
-<div class="ftr__menu mnu-b">
+<nav class="w-full" aria-label="Footer menu">
+    <!-- 1 колонка на мобиле, 3 колонки начиная с md -->
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
+        <?php foreach ($tree as $node): ?>
+            <li>
+                <?php
+                $parentClasses = [
+                    // белый/почти белый на чёрном фоне контейнера
+                    "text-white",
+                    "hover:text-gray-200",
+                    "focus:outline-none",
+                    "focus-visible:ring",
+                    "focus-visible:ring-white/40",
+                    "transition",
+                    "inline-block",
+                    "font-medium",
+                    "mb-3"
+                ];
+                if (!empty($node["SELECTED"])) {
+                    $parentClasses[] = "underline";
+                    $parentClasses[] = "underline-offset-4";
+                    $parentClasses[] = "decoration-white/60";
+                }
+                $parentClassAttr = implode(' ', $parentClasses);
+                $parentLink = $esc($node["LINK"]);
+                $parentText = $esc($node["TEXT"]);
+                $parentIsExternal = $isExternal($node["LINK"]);
+                ?>
 
-<?php foreach (array_chunk($arResult, $itemsPerColumn, true) as $chunk) { ?>
+                <!-- Родительский пункт -->
+                <a
+                        class="<?= $parentClassAttr ?>"
+                        href="<?= $parentLink ?>"
+                    <?= $parentIsExternal ? 'target="_blank" rel="noopener"' : '' ?>
+                >
+                    <?= $parentText ?>
+                </a>
 
-<div class="mnu-b__col">
-	<?php foreach ($chunk as $arItem) {
-		$arItem['TRUNCATE_TEXT'] = ($arParams['TRUNCATE_TEXT_LENGTH'] <> '') ? TruncateText($arItem["TEXT"], $arParams['TRUNCATE_TEXT_LENGTH']) : $arItem["TEXT"];
-	?>
-		<a href="<?= $arItem["LINK"] ?>" class="mnu-b__item"><?=$arItem['TRUNCATE_TEXT']?></a>
-	<?php } ?>
-</div>
-
-<?php } ?>
-
-</div>
+                <!-- Подменю (второй уровень), если есть -->
+                <?php if (!empty($node["CHILDREN"])): ?>
+                    <ul class="space-y-2">
+                        <?php foreach ($node["CHILDREN"] as $child): ?>
+                            <?php
+                            $childClasses = [
+                                "text-gray-200",      // чуть менее яркий, но всё ещё читабельный
+                                "hover:text-white",
+                                "focus:outline-none",
+                                "focus-visible:ring",
+                                "focus-visible:ring-white/40",
+                                "transition",
+                                "inline-block"
+                            ];
+                            if (!empty($child["SELECTED"])) {
+                                $childClasses[] = "underline";
+                                $childClasses[] = "underline-offset-4";
+                                $childClasses[] = "decoration-white/50";
+                            }
+                            $childClassAttr = implode(' ', $childClasses);
+                            $childLink = $esc($child["LINK"]);
+                            $childText = $esc($child["TEXT"]);
+                            $childIsExternal = $isExternal($child["LINK"]);
+                            ?>
+                            <li>
+                                <a
+                                        class="<?= $childClassAttr ?>"
+                                        href="<?= $childLink ?>"
+                                    <?= $childIsExternal ? 'target="_blank" rel="noopener"' : '' ?>
+                                >
+                                    <?= $childText ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</nav>
