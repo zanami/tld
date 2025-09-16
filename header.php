@@ -7,6 +7,7 @@ if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
 }
 
+$siteName = "БТ	Машинери";
 ?>
 <!DOCTYPE html>
 <html lang="<?= LANGUAGE_ID ?>" class="tag-html">
