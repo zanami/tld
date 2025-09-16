@@ -8,7 +8,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 Loc::loadMessages(__FILE__);
 ?>
 
-<footer role="contentinfo" class="pt-16 pb-20 bg-gray-900">
+<footer role="contentinfo" class="pt-16 pb-20 bg-neutral-950">
     <div class="container mx-auto">
         <!-- grid: 1 колонка на мобиле, 4 колонки с md -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12">
