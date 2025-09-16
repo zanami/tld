@@ -1,12 +1,6 @@
 <?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
-/**
- * Ожидаем плоский $arResult от компонента и собираем дерево из 2-х уровней:
- * - DEPTH_LEVEL = 1 — родительский пункт
- * - DEPTH_LEVEL = 2 — дочерний пункт
- * Глубже 2 уровня игнорируем для простоты (можно расширить при желании).
- */
-
+// Собираем дерево: верхний уровень и вложенные элементы
 $tree = [];
 $parentIndex = -1;
 
@@ -18,8 +12,6 @@ foreach ($arResult as $item) {
             "TEXT" => $item["TEXT"],
             "LINK" => $item["LINK"],
             "SELECTED" => !empty($item["SELECTED"]),
-            "PERMISSION" => $item["PERMISSION"],
-            "PARAMS" => $item["PARAMS"] ?? [],
             "CHILDREN" => [],
         ];
     } elseif ($depth === 2 && $parentIndex >= 0) {
@@ -27,99 +19,63 @@ foreach ($arResult as $item) {
             "TEXT" => $item["TEXT"],
             "LINK" => $item["LINK"],
             "SELECTED" => !empty($item["SELECTED"]),
-            "PERMISSION" => $item["PERMISSION"],
-            "PARAMS" => $item["PARAMS"] ?? [],
         ];
     }
 }
 
 if (empty($tree)) return;
 
-// вспомогалки
-$esc = static function ($s) {
-    return htmlspecialcharsbx((string)$s);
-};
-$isExternal = static function ($url) {
-    // простая эвристика для внешних ссылок
-    return (bool)preg_match('~^https?://~i', (string)$url);
-};
+$esc = static fn($s) => htmlspecialcharsbx((string)$s);
+$isExternal = static fn($url) => preg_match('~^https?://~i', (string)$url);
 ?>
 
-<nav class="w-full" aria-label="Footer menu">
-    <!-- 1 колонка на мобиле, 3 колонки начиная с md -->
-    <ul class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
-        <?php foreach ($tree as $node): ?>
-            <li>
-                <?php
-                $parentClasses = [
-                    // белый/почти белый на чёрном фоне контейнера
-                    "text-white",
-                    "hover:text-gray-200",
-                    "focus:outline-none",
-                    "focus-visible:ring",
-                    "focus-visible:ring-white/40",
-                    "transition",
-                    "inline-block",
-                    "font-medium",
-                    "mb-3"
-                ];
-                if (!empty($node["SELECTED"])) {
-                    $parentClasses[] = "underline";
-                    $parentClasses[] = "underline-offset-4";
-                    $parentClasses[] = "decoration-white/60";
-                }
-                $parentClassAttr = implode(' ', $parentClasses);
-                $parentLink = $esc($node["LINK"]);
-                $parentText = $esc($node["TEXT"]);
-                $parentIsExternal = $isExternal($node["LINK"]);
-                ?>
+<ul class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
+    <?php foreach ($tree as $node): ?>
+        <li>
+            <?php
+            $parentText = $esc($node["TEXT"]);
+            $parentLink = $esc($node["LINK"]);
+            $parentClasses = "uppercase font-semibold text-white mb-4 block";
+            ?>
 
-                <!-- Родительский пункт -->
-                <a
-                        class="<?= $parentClassAttr ?>"
-                        href="<?= $parentLink ?>"
-                    <?= $parentIsExternal ? 'target="_blank" rel="noopener"' : '' ?>
-                >
+            <!-- Родительский пункт -->
+            <?php if ($parentLink): ?>
+                <a href="<?= $parentLink ?>"
+                   class="<?= $parentClasses ?>"
+                    <?= $isExternal($node["LINK"]) ? 'target="_blank" rel="noopener"' : '' ?>>
                     <?= $parentText ?>
                 </a>
+            <?php else: ?>
+                <span class="<?= $parentClasses ?>">
+          <?= $parentText ?>
+        </span>
+            <?php endif; ?>
 
-                <!-- Подменю (второй уровень), если есть -->
-                <?php if (!empty($node["CHILDREN"])): ?>
-                    <ul class="space-y-2">
-                        <?php foreach ($node["CHILDREN"] as $child): ?>
-                            <?php
-                            $childClasses = [
-                                "text-gray-200",      // чуть менее яркий, но всё ещё читабельный
-                                "hover:text-white",
-                                "focus:outline-none",
-                                "focus-visible:ring",
-                                "focus-visible:ring-white/40",
-                                "transition",
-                                "inline-block"
-                            ];
-                            if (!empty($child["SELECTED"])) {
-                                $childClasses[] = "underline";
-                                $childClasses[] = "underline-offset-4";
-                                $childClasses[] = "decoration-white/50";
-                            }
-                            $childClassAttr = implode(' ', $childClasses);
-                            $childLink = $esc($child["LINK"]);
-                            $childText = $esc($child["TEXT"]);
-                            $childIsExternal = $isExternal($child["LINK"]);
-                            ?>
-                            <li>
-                                <a
-                                        class="<?= $childClassAttr ?>"
-                                        href="<?= $childLink ?>"
-                                    <?= $childIsExternal ? 'target="_blank" rel="noopener"' : '' ?>
-                                >
+            <!-- Дочерние пункты -->
+            <?php if (!empty($node["CHILDREN"])): ?>
+                <ul class="space-y-2">
+                    <?php foreach ($node["CHILDREN"] as $child): ?>
+                        <?php
+                        $childText = $esc($child["TEXT"]);
+                        $childLink = $esc($child["LINK"]);
+                        $childClasses = "font-light text-gray-200 hover:text-white transition py-1 block";
+                        ?>
+                        <li>
+                            <?php if ($childLink): ?>
+                                <a href="<?= $childLink ?>"
+                                   class="<?= $childClasses ?>"
+                                    <?= $isExternal($child["LINK"]) ? 'target="_blank" rel="noopener"' : '' ?>>
                                     <?= $childText ?>
                                 </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-</nav>
+                            <?php else: ?>
+                                <span class="<?= $childClasses ?>">
+                  <?= $childText ?>
+                </span>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+</ul>
