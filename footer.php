@@ -12,27 +12,13 @@ Loc::loadMessages(__FILE__);
 	<div class="container">
 		<div class="ftr">
 
-			<? $APPLICATION->IncludeComponent(
-				"bitrix:menu",
-				"footer_menu",
-				array(
-					"ROOT_MENU_TYPE" => "footer",
-					"MAX_LEVEL" => "2",
-					"CHILD_MENU_TYPE" => "left",
-					"USE_EXT" => "N",
-					"MENU_CACHE_TYPE" => "A",
-					"MENU_CACHE_TIME" => "36000000",
-					"MENU_CACHE_USE_GROUPS" => "Y",
-					"MENU_CACHE_GET_VARS" => array(),
-					"COMPONENT_TEMPLATE" => "bottom",
-					"DELAY" => "N",
-					"ALLOW_MULTI_SELECT" => "N"
-				),
-				false,
-				array(
-					"ACTIVE_COMPONENT" => "Y"
-				)
-			); ?>
+            <?$APPLICATION->IncludeComponent("bitrix:menu", "footer_menu", [
+                "ROOT_MENU_TYPE" => "footer",
+                "MAX_LEVEL"      => "2",
+                "CHILD_MENU_TYPE"=> "footer",
+                "USE_EXT"        => "N", // у тебя подменю по папкам — это ок
+                "ALLOW_MULTI_SELECT" => "N",
+            ], false, ["HIDE_ICONS" => "Y"]);?>
 
 			<div class="ftr__content">
                 <img
