@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-@layer base;
+/* Импорт шрифта (переменный) */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap&subset=latin,cyrillic');
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -63,7 +63,7 @@
     cursor: pointer;
   }
   body {
-    font-family: "Manrope", sans-serif;
+    @apply font-sans;
   }
 }
 
