@@ -35,7 +35,7 @@ $isExternal = static fn($url) => preg_match('~^https?://~i', (string)$url);
             <?php
             $parentText = $esc($node["TEXT"]);
             $parentLink = $esc($node["LINK"]);
-            $parentClasses = "font-bold tracking-wide text-white mb-4 block";
+            $parentClasses = "tracking-wider text-white mb-4 block";
             ?>
 
             <!-- Родительский пункт -->
