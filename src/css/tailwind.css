@@ -30,6 +30,7 @@
     --text-5xl--line-height: 1;
     --font-weight-light: 300;
     --font-weight-medium: 500;
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --tracking-wide: 0.025em;
     --radius-lg: 0.5rem;
@@ -419,6 +420,9 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
@@ -485,6 +489,10 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
   .tracking-wide {
     --tw-tracking: var(--tracking-wide);
     letter-spacing: var(--tracking-wide);
@@ -509,6 +517,9 @@
   }
   .text-white {
     color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
   }
   .line-through {
     text-decoration-line: line-through;
