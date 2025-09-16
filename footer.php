@@ -27,11 +27,11 @@ Loc::loadMessages(__FILE__);
             <!-- КОНТЕНТ: на мобиле внизу, на десктопе — первая колонка слева -->
             <div class="order-2 md:order-1 md:col-span-1">
                 <img
-                        class="w-40 md:w-44 h-auto"
+                        class="w-24 md:w-32 h-auto"
                         src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo-bottom.svg"
                         alt="logo"
                 />
-                <div class="font-light text-xs text-gray-300 mt-6">
+                <div class="font-light text-xs text-gray-400 mt-6">
                     &copy; <?= date('Y') ?> <?= SITE_SERVER_NAME ?>
                 </div>
             </div>

@@ -35,7 +35,7 @@ $isExternal = static fn($url) => preg_match('~^https?://~i', (string)$url);
             <?php
             $parentText = $esc($node["TEXT"]);
             $parentLink = $esc($node["LINK"]);
-            $parentClasses = "tracking-wider text-white mb-4 block";
+            $parentClasses = "font-bold tracking-wider text-white mb-4 block";
             ?>
 
             <!-- Родительский пункт -->
@@ -53,7 +53,7 @@ $isExternal = static fn($url) => preg_match('~^https?://~i', (string)$url);
 
             <!-- Дочерние пункты -->
             <?php if (!empty($node["CHILDREN"])): ?>
-                <ul class="space-y-1">
+                <ul class="space-y-0">
                     <?php foreach ($node["CHILDREN"] as $child): ?>
                         <?php
                         $childText = $esc($child["TEXT"]);
