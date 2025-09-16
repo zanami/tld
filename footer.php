@@ -32,7 +32,7 @@ Loc::loadMessages(__FILE__);
                         alt="logo"
                 />
                 <div class="font-light text-xs text-gray-400 mt-6">
-                    &copy; <?= date('Y') ?> <?= SITE_SERVER_NAME ?>
+                    &copy; <?= date('Y') ?> <?= $siteName ?>
                 </div>
             </div>
 
