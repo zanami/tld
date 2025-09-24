@@ -40,9 +40,9 @@ $previousLevel = 0;
                 $isFirstTop = ($isTop && $i === array_key_first($arResult));
 
                 // Классы ссылок верхнего уровня
-                $topLink = "flex py-2 mx-6 uppercase text-lg font-medium ud-menu-scroll text-dark dark:amber-500 group-hover:text-primary lg:mr-0 ".
+                $topLink = "flex py-2 mx-6 uppercase text-lg font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 ".
                     ($isFirstTop ? "" : "lg:ml-4 xl:ml-6 ").
-                    "lg:inline-flex lg:py-2 lg:px-0";
+                    "lg:inline-flex lg:py-2 lg:px-0 lg:text-body-color dark:lg:text-amber-500";
 
                 // Классы ссылок подуровней (компактные)
                 $subLink = "block px-4 py-2 text-base text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-dark-3";
