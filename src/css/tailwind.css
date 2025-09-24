@@ -6,6 +6,7 @@
     --font-sans: "Manrope", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
@@ -45,6 +46,7 @@
     --default-mono-font-family: var(--font-mono);
     --color-dark: #111928;
     --color-dark-2: #1f2a37;
+    --color-dark-3: #374151;
     --color-dark-6: #9ca3af;
     --color-primary: #3758f9;
     --color-blue-dark: #1b44c8;
@@ -605,6 +607,13 @@
       }
     }
   }
+  .hover\:bg-gray-100 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-100);
+      }
+    }
+  }
   .hover\:bg-gray-800 {
     &:hover {
       @media (hover: hover) {
@@ -668,6 +677,11 @@
   .md\:grid-cols-4 {
     @media (width >= 720px) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  .lg\:pointer-events-auto {
+    @media (width >= 960px) {
+      pointer-events: auto;
     }
   }
   .lg\:invisible {
@@ -791,6 +805,11 @@
       padding-block: calc(var(--spacing) * 0);
     }
   }
+  .lg\:py-2 {
+    @media (width >= 960px) {
+      padding-block: calc(var(--spacing) * 2);
+    }
+  }
   .lg\:py-3 {
     @media (width >= 960px) {
       padding-block: calc(var(--spacing) * 3);
@@ -888,6 +907,15 @@
   .dark\:text-white {
     &:where(.dark, .dark *) {
       color: var(--color-white);
+    }
+  }
+  .dark\:hover\:bg-dark-3 {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-dark-3);
+        }
+      }
     }
   }
   .dark\:lg\:bg-dark-2 {
