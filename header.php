@@ -62,118 +62,68 @@ $siteName = "БТ	Машинери";
 		"MENU_CACHE_GET_VARS" => ""
 	)); ?>
 
-	<header class="absolute top-0 left-0 z-40 flex items-center w-full bg-transparent ud-header">
-		<div class="hdng__placeholder"></div>
-		<div class="container px-4 mx-auto">
-			<div class="relative flex items-center justify-between -mx-4">
-        <div class="max-w-full px-4 w-60">
-          <a href="<?= SITE_DIR ?>" class="block w-full py-5 navbar-logo">
-            <img
-              src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
-              alt="logo"
-              class="w-full dark:hidden"
-            />
-            <img
-              src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo-white.svg"
-              alt="logo"
-              class="hidden w-full dark:block"
-            />
-						<span class="sr-only">
-							<span><?= $siteName ?></span>
-							<span>Погрузчики TEU и Xilin. Складская техника.</span>
-						</span>
-          </a>
+    <header class="absolute top-0 left-0 z-40 flex items-center w-full bg-transparent ud-header">
+        <div class="container px-4 mx-auto">
+            <div class="relative flex items-center justify-between -mx-4">
+                <div class="max-w-full px-4 w-60">
+                    <a href="<?= SITE_DIR ?>" class="block w-full py-1 navbar-logo">
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
+                                alt="logo"
+                                class="w-full dark:hidden"
+                        />
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo-white.svg"
+                                alt="logo"
+                                class="hidden w-full dark:block"
+                        />
+                        <span class="sr-only">
+                            <span><?= $siteName ?></span>
+                            <span>Погрузчики TEU и Xilin. Складская техника.</span>
+                        </span>
+                    </a>
+                </div>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "top_menu",
+                    array(
+                        "ROOT_MENU_TYPE" => "top",
+                        "MAX_LEVEL" => "2",
+                        "CHILD_MENU_TYPE" => "left",
+                        "USE_EXT" => "Y",
+                        "MENU_CACHE_TYPE" => "A",
+                        "MENU_CACHE_TIME" => "36000000",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "MENU_CACHE_GET_VARS" => ""
+                    ),
+                    false,
+                    array(
+                        "ACTIVE_COMPONENT" => "Y"
+                    )
+                ); ?>
+            </div>
         </div>
-        <div class="flex items-center justify-between w-full px-4">
-          <div>
-            <button
-              id="navbarToggler"
-              class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-            >
-              <span
-                class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"
-              ></span>
-              <span
-                class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"
-              ></span>
-              <span
-                class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"
-              ></span>
-            </button>
-            <nav
-              id="navbarCollapse"
-              class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 shadow-lg lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent dark:lg:bg-transparent lg:py-0 lg:px-4 lg:shadow-none xl:px-6"
-            >
-              <ul class="block lg:flex 2xl:ml-20">
-                  <li class="relative group">
-                    <a
-                      href="#home"
-                      class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-body-color dark:lg:text-dark-6"
-                    >
-                      Home
-                    </a>
-                  </li>
-                  <li class="relative group">
-                    <a
-                      href="/#about"
-                      class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-body-color dark:lg:text-dark-6 xl:ml-10"
-                    >
-                      About
-                    </a>
-                  </li>
-                  <li class="relative group">
-                    <a
-                      href="/#pricing"
-                      class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-body-color dark:lg:text-dark-6 xl:ml-10"
-                    >
-                      Pricing
-                    </a>
-                  </li>
-              </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
 					<div class="hdng__item hdng__item_right">
-						<? $APPLICATION->IncludeComponent(
-							"bitrix:menu",
-							"main_menu",
-							array(
-								"ROOT_MENU_TYPE" => "top",
-								"MAX_LEVEL" => "2",
-								"CHILD_MENU_TYPE" => "left",
-								"USE_EXT" => "Y",
-								"MENU_CACHE_TYPE" => "A",
-								"MENU_CACHE_TIME" => "36000000",
-								"MENU_CACHE_USE_GROUPS" => "Y",
-								"MENU_CACHE_GET_VARS" => ""
-							),
-							false,
-							array(
-								"ACTIVE_COMPONENT" => "Y"
-							)
-						); ?>
 
-						<? $APPLICATION->IncludeComponent(
-							"bitrix:menu",
-							"float_menu",
-							array(
-								"ROOT_MENU_TYPE" => "float",
-								"MAX_LEVEL" => "2",
-								"CHILD_MENU_TYPE" => "left",
-								"USE_EXT" => "Y",
-								"MENU_CACHE_TYPE" => "A",
-								"MENU_CACHE_TIME" => "36000000",
-								"MENU_CACHE_USE_GROUPS" => "Y",
-								"MENU_CACHE_GET_VARS" => ""
-							),
-							false,
-							array(
-								"ACTIVE_COMPONENT" => "Y"
-							)
-						); ?>
+
+<!--						--><?// $APPLICATION->IncludeComponent(
+//							"bitrix:menu",
+//							"float_menu",
+//							array(
+//								"ROOT_MENU_TYPE" => "float",
+//								"MAX_LEVEL" => "2",
+//								"CHILD_MENU_TYPE" => "left",
+//								"USE_EXT" => "Y",
+//								"MENU_CACHE_TYPE" => "A",
+//								"MENU_CACHE_TIME" => "36000000",
+//								"MENU_CACHE_USE_GROUPS" => "Y",
+//								"MENU_CACHE_GET_VARS" => ""
+//							),
+//							false,
+//							array(
+//								"ACTIVE_COMPONENT" => "Y"
+//							)
+//						); ?>
 
 						<? //$APPLICATION->IncludeComponent('btnmc:sidebar.form', '', ['FORM_TYPE' => 'order_call',])
 						?>
