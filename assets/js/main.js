@@ -8,9 +8,9 @@
     const logo = document.querySelectorAll(".header-logo");
 
     if (window.pageYOffset > sticky) {
-      ud_header.classList.add("dark");
+      ud_header.classList.add("dark-display");
     } else {
-      ud_header.classList.remove("dark");
+      ud_header.classList.remove("dark-display");
     }
 
     if(logo.length) {

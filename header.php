@@ -6,7 +6,8 @@ CModule::IncludeModule("aspro.scorp");
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
 }
-
+$isMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR;
+$headerClass = $isMainPage ? ' dark' : '';
 $siteName = "БТ	Машинери";
 ?>
 <!DOCTYPE html>
@@ -51,7 +52,7 @@ $siteName = "БТ	Машинери";
 
 	<? $APPLICATION->ShowPanel() ?>
 
-    <header class="absolute top-0 left-0 z-40 flex items-center w-full bg-transparent ud-header">
+    <header class="absolute top-0 left-0 z-40 flex items-center w-full bg-transparent ud-header <?= $headerClass ?>">
         <div class="container px-4 mx-auto">
             <div class="relative flex items-center justify-between -mx-4">
                 <div class="max-w-full px-4 w-60">
