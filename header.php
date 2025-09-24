@@ -51,17 +51,6 @@ $siteName = "БТ	Машинери";
 
 	<? $APPLICATION->ShowPanel() ?>
 
-	<? $APPLICATION->IncludeComponent("bitrix:menu", "mobile", array(
-		"ROOT_MENU_TYPE" => "float",
-		"MAX_LEVEL" => "2",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "Y",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "36000000",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_CACHE_GET_VARS" => ""
-	)); ?>
-
     <header class="absolute top-0 left-0 z-40 flex items-center w-full bg-transparent ud-header">
         <div class="container px-4 mx-auto">
             <div class="relative flex items-center justify-between -mx-4">
