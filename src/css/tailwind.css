@@ -920,6 +920,11 @@
       display: none;
     }
   }
+  .dark\:bg-amber-500 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-amber-500);
+    }
+  }
   .dark\:bg-dark-2 {
     &:where(.dark, .dark *) {
       background-color: var(--color-dark-2);
