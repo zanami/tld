@@ -34,6 +34,7 @@ $previousLevel = 0;
                 $linkCls .= $isFirstTop ? "" : "lg:ml-7 xl:ml-10 ";
                 $linkCls .= "lg:inline-flex lg:py-6 lg:px-0 lg:text-body-color dark:lg:text-dark-6";
                 $active = !empty($arItem["SELECTED"]) ? " text-primary lg:text-primary" : "";
+                $subCls = "block px-4 py-2 text-sm text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-dark-3";
                 ?>
 
                 <?php if ($arItem["IS_PARENT"]): ?>
@@ -49,7 +50,7 @@ $previousLevel = 0;
                         <ul class="lg:block">
                             <?php else: ?>
                             <li class="relative group">
-                                <a href="<?=htmlspecialcharsbx($arItem["LINK"])?>" class="<?=$linkCls.$active?>"><?=$arItem["TEXT"]?></a>
+                                <a href="<?=htmlspecialcharsbx($arItem["LINK"])?>" class="<?=$subCls.$active?>"><?=$arItem["TEXT"]?></a>
                                 <?php endif; ?>
 
                                 <?php
