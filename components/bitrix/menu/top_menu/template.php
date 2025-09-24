@@ -41,7 +41,7 @@ $previousLevel = 0;
 
                 // Классы ссылок верхнего уровня
                 $topLink = "flex py-2 mx-6 uppercase text-lg font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 ".
-                    ($isFirstTop ? "" : "lg:ml-7 xl:ml-10 ").
+                    ($isFirstTop ? "" : "lg:ml-4 xl:ml-6 ").
                     "lg:inline-flex lg:py-2 lg:px-0 lg:text-body-color dark:lg:text-dark-6";
 
                 // Классы ссылок подуровней (компактные)
