@@ -40,12 +40,12 @@ $previousLevel = 0;
                 $isFirstTop = ($isTop && $i === array_key_first($arResult));
 
                 // Классы ссылок верхнего уровня
-                $topLink = "flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 ".
+                $topLink = "flex py-2 mx-6 uppercase text-lg font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 ".
                     ($isFirstTop ? "" : "lg:ml-7 xl:ml-10 ").
-                    "lg:inline-flex lg:py-6 lg:px-0 lg:text-body-color dark:lg:text-dark-6";
+                    "lg:inline-flex lg:py-2 lg:px-0 lg:text-body-color dark:lg:text-dark-6";
 
                 // Классы ссылок подуровней (компактные)
-                $subLink = "block px-4 py-2 text-sm text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-dark-3";
+                $subLink = "block px-4 py-2 text-base text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-dark-3";
 
                 // Active
                 $active = !empty($arItem["SELECTED"]) ? " text-primary lg:text-primary" : "";
