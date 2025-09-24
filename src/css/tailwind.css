@@ -841,6 +841,15 @@
       transition-duration: 200ms;
     }
   }
+  .lg\:group-hover\:block {
+    @media (width >= 960px) {
+      &:is(:where(.group):hover *) {
+        @media (hover: hover) {
+          display: block;
+        }
+      }
+    }
+  }
   .xl\:ml-10 {
     @media (width >= 1140px) {
       margin-left: calc(var(--spacing) * 10);
