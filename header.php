@@ -6,7 +6,7 @@ CModule::IncludeModule("aspro.scorp");
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
 }
-$isMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR;
+$isMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR || $APPLICATION->GetCurPage(false) === '/index2.php';
 $headerClass = $isMainPage ? ' dark' : '';
 $siteName = "БТ	Машинери";
 ?>

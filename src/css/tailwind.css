@@ -6,6 +6,7 @@
     --font-sans: "Manrope", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-orange-600: oklch(64.6% 0.222 41.116);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
@@ -926,6 +927,11 @@
   .dark\:bg-white {
     &:where(.dark, .dark *) {
       background-color: var(--color-white);
+    }
+  }
+  .dark\:text-orange-600 {
+    &:where(.dark, .dark *) {
+      color: var(--color-orange-600);
     }
   }
   .dark\:text-white {
