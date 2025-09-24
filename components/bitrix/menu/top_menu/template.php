@@ -9,13 +9,12 @@ $previousLevel = 0;
 <div class="flex items-center justify-between w-full px-4">
     <div>
         <!-- Бургер -->
-        <button
-                id="navbarToggler"
+        <button id="navbarToggler"
                 class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
                 type="button" aria-controls="navbarCollapse" aria-expanded="false">
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-white"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-amber-500"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-amber-500"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-amber-500"></span>
         </button>
 
         <!-- Навигация -->
