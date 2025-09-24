@@ -102,6 +102,7 @@ $previousLevel = 0;
                 var hidden = nav.classList.contains('hidden');
                 nav.classList.toggle('hidden', !hidden);
                 toggler.setAttribute('aria-expanded', String(hidden));
+                toggler.classList.toggle("navbarTogglerActive");
             });
         }
 
