@@ -8,19 +8,19 @@
     const logo = document.querySelectorAll(".header-logo");
 
     if (window.pageYOffset > sticky) {
-      ud_header.classList.add("sticky");
+      ud_header.classList.add("dark");
     } else {
-      ud_header.classList.remove("sticky");
+      ud_header.classList.remove("dark");
     }
 
     if(logo.length) {
       // === logo change
-      if (ud_header.classList.contains("sticky")) {
-        document.querySelector(".header-logo").src =
-          "assets/images/logo/logo.svg"
-      } else {
+      if (ud_header.classList.contains("dark")) {
         document.querySelector(".header-logo").src =
           "assets/images/logo/logo-white.svg"
+      } else {
+        document.querySelector(".header-logo").src =
+          "assets/images/logo/logo.svg"
       }
     }
 

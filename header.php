@@ -55,7 +55,7 @@ $siteName = "БТ	Машинери";
         <div class="container px-4 mx-auto">
             <div class="relative flex items-center justify-between -mx-4">
                 <div class="max-w-full px-4 w-60">
-                    <a href="<?= SITE_DIR ?>" class="block w-full py-1 navbar-logo">
+                    <a href="<?= SITE_DIR ?>" class="block w-full py-0 navbar-logo">
                         <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
                                 alt="logo"
                                 class="w-full dark:hidden"
@@ -91,36 +91,6 @@ $siteName = "БТ	Машинери";
             </div>
         </div>
     </header>
-
-					<div class="hdng__item hdng__item_right">
-
-
-<!--						--><?// $APPLICATION->IncludeComponent(
-//							"bitrix:menu",
-//							"float_menu",
-//							array(
-//								"ROOT_MENU_TYPE" => "float",
-//								"MAX_LEVEL" => "2",
-//								"CHILD_MENU_TYPE" => "left",
-//								"USE_EXT" => "Y",
-//								"MENU_CACHE_TYPE" => "A",
-//								"MENU_CACHE_TIME" => "36000000",
-//								"MENU_CACHE_USE_GROUPS" => "Y",
-//								"MENU_CACHE_GET_VARS" => ""
-//							),
-//							false,
-//							array(
-//								"ACTIVE_COMPONENT" => "Y"
-//							)
-//						); ?>
-
-						<? //$APPLICATION->IncludeComponent('btnmc:sidebar.form', '', ['FORM_TYPE' => 'order_call',])
-						?>
-
-				</div>
-			</div>
-		</div>
-	</header>
 
 	<?php
 
