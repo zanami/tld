@@ -12,6 +12,8 @@
   --breakpoint-xl: 1140px;
   --breakpoint-2xl: 1320px;
 
+  --text-5xl: 2.5rem;
+
   /* Container Padding */
   --container-padding: 16px;
 
@@ -125,4 +127,40 @@
 .common-carousel .swiper-button-next svg,
 .common-carousel .swiper-button-prev svg {
   @apply w-auto h-auto;
+}
+
+@layer components {
+  .content h1 { @apply text-3xl font-bold mb-4; }
+  .content h2 { @apply text-2xl font-semibold mb-3; }
+  .content h3 { @apply text-xl font-semibold mb-2; }
+
+  .content p { @apply mb-4 leading-relaxed; }
+
+  .content ul { @apply list-disc pl-6 mb-4; }
+  .content ol { @apply list-decimal pl-6 mb-4; }
+  .content li {  }
+
+  .content a { @apply text-blue-600 hover:underline; }
+
+  .content blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-700 my-4;
+  }
+  .content table { @apply w-full border-collapse my-4; }
+  .content thead th {
+    @apply text-left font-semibold border-b p-4;
+  }
+  .content tbody { @apply border-t border-b;}
+  .content tbody tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+  .content td {
+    @apply border-b p-4;
+  }
+
+  .content .underline {text-decoration-line: none !important;}
+
+  .content h4 { @apply text-4xl font-semibold mt-6 mb-8; }
+
+  .content code { @apply bg-gray-100 px-1 py-0.5 rounded text-sm; }
+  .content pre { @apply bg-gray-100 p-4 rounded overflow-x-auto; }
 }

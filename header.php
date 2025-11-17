@@ -1,5 +1,4 @@
 <?php
-
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 CModule::IncludeModule("aspro.scorp");
 
@@ -11,18 +10,13 @@ $headerClass = $isMainPage ? ' dark' : '';
 $siteName = "БТ	Машинери";
 ?>
 <!DOCTYPE html>
-<html lang="<?= LANGUAGE_ID ?>" class="tag-html">
+<html lang="<?= LANGUAGE_ID ?>" class="tag-html scroll-smooth">
 
 <head>
 	<?php
 	$APPLICATION->ShowProperty('AfterHeadOpen');
 	$APPLICATION->ShowViewContent('AfterHeadOpen');
 	?>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><? $APPLICATION->ShowTitle() ?></title>
     <link
       rel="shortcut icon"
