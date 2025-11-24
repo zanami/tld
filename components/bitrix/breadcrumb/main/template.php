@@ -9,7 +9,6 @@ use Bitrix\Main\Localization\Loc;
 
 global $APPLICATION;
 
-echo 'HELLOOOOOOOO';
 //delayed function must return a string
 if (empty($arResult)) {
 	return '';
@@ -18,29 +17,29 @@ if (empty($arResult)) {
 $itemSize = count($arResult);
 
 $strReturn = '
-<div class="crumz crumz_gray" id="navigation">
+<nav aria-label="Breadcrumb">
 	<div class="w">
-		<ul class="crumz__wrap">
+		<ul class="crumz__wrap flex flex-wrap items-center text-sm text-slate-500">
 			<li class="crumz__item">
 				<a href="' . SITE_DIR . '" class="crumz__link">
-					<span class="crumz__text">' . Loc::getMessage("BREADCRUMBS_MAIN_PAGE") . '</span>
+					' . Loc::getMessage("BREADCRUMBS_MAIN_PAGE") . '
 				</a>
 			</li>
 ';
 
 foreach ($arResult as $index => $arItem) {
-	if (($arResult[$index]["LINK"] <> "") && ($index != $itemSize - 1)) {
+	if (($arResult[$index]["LINK"] <> "")) {
 		$strReturn .= '
 			<li class="crumz__item">
 				<a href="' . $arItem['LINK'] . '" class="crumz__link">
-					<span class="crumz__text">' . $arItem['TITLE'] . '</span>
+					' . $arItem['TITLE'] . '
 				</a>
 			</li>
 		';
 	} else {
 		$strReturn .= '
 			<li class="crumz__item crumz__item_current">
-				<span class="crumz__text crumz__text_current">' . $arItem['TITLE'] . '</span>
+				' . $arItem['TITLE'] . '
 			</li>
 		';
 	}
@@ -48,8 +47,7 @@ foreach ($arResult as $index => $arItem) {
 
 $strReturn .= '
 		</ul>
-	</div>
-</div>
+</nav>
 ';
 
 return $strReturn;

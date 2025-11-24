@@ -144,5 +144,3 @@ $arElement = CCache::CIblockElement_GetList(array('CACHE' => array('TAG' => CCac
 
 	?>
 <?endif;?>
-<div style="clear:both"></div>
-<a class="back-url" href="<?=$arResult['SECTION'] ? $arResult['SECTION']['SECTION_PAGE_URL'] : $arResult['FOLDER'].$arResult['URL_TEMPLATES']['news']?>"><i class="fa fa-chevron-left"></i><?=GetMessage('BACK_LINK')?></a>
