@@ -173,6 +173,6 @@
   .bcItem + .bcItem::before {
     content: "/";
     margin: 0 0.35rem;
-    color: #cbd5f5;
+    color: #e5e5e5;
   }
 }
