@@ -80,18 +80,17 @@ $APPLICATION->SetPageProperty("canonical",$APPLICATION->GetCurPage());
 		$component
 	);?>
 	<?// section elements?>
-	<? include_once("include_filter.php");?>
+<!--	--><?// include_once("include_filter.php");?>
 	<?
 	$frame = new \Bitrix\Main\Page\FrameHelper('catalog-elements-block');
 	$frame->begin();
 	$frame->setAnimation(true);
 	?>
-	<? include_once("include_sort.php");?>
-	<?$display_template = $display ? 'catalog-'.$display: 'catalog-table';?>
+<!--	--><?// include_once("include_sort.php");?>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:news.list",
-		$display_template,
-		Array(
+            'catalog-table',
+        Array(
 			"S_ASK_QUESTION" => $arParams["S_ASK_QUESTION"],
 			"S_ORDER_PRODUCT" => $arParams["S_ORDER_PRODUCT"],
 			"T_GALLERY" => $arParams["T_GALLERY"],

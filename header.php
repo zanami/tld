@@ -47,7 +47,7 @@ $siteName = "БТ	Машинери";
 	<? $APPLICATION->ShowPanel() ?>
 
     <header class="flex items-center w-full bg-transparent ud-header <?= $headerClass ?>">
-        <div class="container px-4 mx-auto">
+        <div class="container mx-auto">
             <div class="relative flex items-center justify-between -mx-4">
                 <div class="max-w-full px-4 w-60">
                     <a href="<?= SITE_DIR ?>" class="block w-full py-0 navbar-logo">
@@ -95,16 +95,18 @@ $siteName = "БТ	Машинери";
 		<?php
 	} else {
 		?>
-			<? $APPLICATION->IncludeComponent(
-				"bitrix:breadcrumb",
-				"main",
-				array(
-					"COMPONENT_TEMPLATE" => ".default",
-					"PATH" => "",
-					"SITE_ID" => "-",
-					//"START_FROM" => "1",
-				),
-				false
-			); ?>
+        <div class="container mb-12 mx-auto">
+        <h1 class="page-title mb-10 mt-4 text-5xl"><?$APPLICATION->ShowTitle(false)?></h1>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:breadcrumb",
+            "main",
+            [
+                "START_FROM" => "0",
+                "PATH"       => "",
+                "SITE_ID"    => SITE_ID
+            ],
+            false
+        );?>
+        </div>
 		<?php
 	}

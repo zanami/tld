@@ -100,33 +100,20 @@
 		?>
 		<div class="col-md-3 col-sm-5 ordering-wrap">
 			<div class="select-outer">
-				<i class="fa fa-angle-down"></i>
-				<select class="sort">
 				<?foreach($arAvailableSort as $newSort => $arSort):?>
 					<?if(is_array($arSort['ORDER_VALUES'])):?>
 						<?foreach($arSort['ORDER_VALUES'] as $newOrder => $sortTitle):?>
 							<?$selected = ($sort == $newSort && $order == $newOrder);?>
-							<option <?=($selected ? "selected='selected'" : "")?>  value="<?=$APPLICATION->GetCurPageParam('sort='.$newSort.'&order='.$newOrder, array('sort', 'order'))?>" class="ordering"><?=$sortTitle?></option>
+                        <?php
+                            $newOrder = ($order == 'asc' ? 'desc' : 'asc');
+                            $sortTitle = $arSort['ORDER_VALUES'][$newOrder];
+                        ?>
+							<a href="<?=$APPLICATION->GetCurPageParam('sort='.$newSort.'&order='.$newOrder, array('sort', 'order'))?>" class="ordering"><?=$sortTitle?></a>
 						<?endforeach;?>
 					<?endif;?>
 				<?endforeach;?>
-				</select>
 			</div>
 		</div>
-		<?if(!$arSectiontmp['UF_VIEWTYPE']):?>
-			<div class="col-md-5 col-sm-6 display-type pull-right text-right">
-				<span class="label_show"><?=GetMessage('T_SORT');?>:</span>
-				<a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam('display=table', array('display'))?>" class="view-button view-tiles <?=$display == 'table' ? 'cur' : '';?>"  title="<?=GetMessage('T_LIST_VIEW');?>">
-					&nbsp;
-				</a>
-				<a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam('display=list', array('display'))?>" class="view-button view-list <?=$display == 'list' ? 'cur' : '';?>"  title="<?=GetMessage('T_TABLE_VIEW');?>">
-					&nbsp;
-				</a>
-				<a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam('display=price', array('display'))?>" class="view-button view-price <?=$display == 'price' ? 'cur' : '';?>"  title="<?=GetMessage('T_PRICE_VIEW');?>">
-					&nbsp;
-				</a>
-			</div>
-		<?endif;?>
 	</div>
 	<!-- /noindex -->
 <?endif;?>

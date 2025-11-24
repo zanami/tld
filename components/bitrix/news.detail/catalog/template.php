@@ -2,9 +2,7 @@
         true
 ); ?>
 
-<div class="container mb-12 mx-auto max-w-5xl">
-    <h2 class="page-title mb-10 mt-4 text-5xl"><?= $arResult['NAME'] ?></h2>
-
+<div class="container mb-12 mx-auto">
     <? if (strlen($arResult['FIELDS']['PREVIEW_TEXT'])): ?>
         <div class="mb-2 text-2xl leading-9 font-thin max-w-3xl">
             <? if ($arResult['DETAIL_TEXT_TYPE'] == 'text'): ?>
@@ -19,7 +17,7 @@
         <div class="flex flex-col gap-8<?=$arResult['GALLERY'] ? ' md:flex-row' : ''?>"">
             <? if ($arResult['GALLERY']): ?>
                 <div class="overflow-hidden md:w-2/3">
-                    <div class="galery" data-gallery="<?= $arResult['ID'] ?>">
+                    <div class="gallery" data-gallery="<?= $arResult['ID'] ?>">
                         <!-- Большое изображение -->
                         <div class="mb-4">
                             <img
@@ -56,19 +54,10 @@
 
                         <!-- Оверлей / лайтбокс -->
                         <div
-                                class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center"
+                                class="fixed inset-0 bg-white z-50 hidden items-center justify-center"
                                 data-lightbox
                         >
                             <div class="relative max-w-3xl w-full px-4">
-                                <!-- Кнопка закрытия -->
-                                <button
-                                        type="button"
-                                        class="absolute -top-10 right-4 text-white text-2xl"
-                                        data-lightbox-close
-                                >
-                                    &times;
-                                </button>
-
                                 <!-- Картинка в лайтбоксе -->
                                 <img
                                         class="w-full max-h-[80vh] object-contain rounded-lg"
@@ -77,22 +66,30 @@
                                         alt=""
                                 />
 
-                                <!-- Кнопки навигации -->
-                                <button
-                                        type="button"
-                                        class="absolute top-1/2 left-2 -translate-y-1/2 text-white text-3xl px-2"
-                                        data-lightbox-prev
-                                >
-                                    ‹
-                                </button>
-                                <button
-                                        type="button"
-                                        class="absolute top-1/2 right-2 -translate-y-1/2 text-white text-3xl px-2"
-                                        data-lightbox-next
-                                >
-                                    ›
-                                </button>
                             </div>
+                            <!-- Кнопка закрытия -->
+                            <button
+                                    type="button"
+                                    class="absolute top-4 right-4 text-gray-950 text-4xl"
+                                    data-lightbox-close
+                            >
+                                &times;
+                            </button>
+                            <!-- Кнопки навигации -->
+                            <button
+                                    type="button"
+                                    class="absolute top-1/2 left-2 -translate-y-1/2 text-gray-950 text-4xl px-2"
+                                    data-lightbox-prev
+                            >
+                                ‹
+                            </button>
+                            <button
+                                    type="button"
+                                    class="absolute top-1/2 right-2 -translate-y-1/2 text-gray-950 text-4xl px-2"
+                                    data-lightbox-next
+                            >
+                                ›
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -121,26 +118,16 @@
                     <div class="mb-1 text-xl font-semibold leading-8 text-amber-400">
                         <?= GetMessage('CTA_TEXT') ?>
                     </div>
-                    <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES' || $arResult['DISPLAY_PROPERTIES']['FORM_QUESTION']['VALUE_XML_ID'] == 'YES'): ?>
-                        <div class="order">
+                    <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
+                        <div class="order my-4">
                             <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
-                                <span class="btn btn-default" data-event="jqm"
+                                <span class="inline-block px-12 py-4 rounded-md bg-amber-500 text-gray-950 uppercase" data-event="jqm"
                                       data-param-id="<?= CCache::$arIBlocks[SITE_ID]['aspro_scorp_form']['aspro_scorp_order_product'][0] ?>"
                                       data-name="order_product"
                                       data-product="<?= $arResult['NAME'] ?>"><?= (strlen(
                                             $arParams['S_ORDER_PRODUCT']
                                     ) ? $arParams['S_ORDER_PRODUCT'] : GetMessage(
                                             'S_ORDER_PRODUCT'
-                                    )) ?></span>
-                            <? endif; ?>
-                            <? if ($arResult['DISPLAY_PROPERTIES']['FORM_QUESTION']['VALUE_XML_ID'] == 'YES'): ?>
-                                <span class="btn btn-default white" data-event="jqm"
-                                      data-param-id="<?= CCache::$arIBlocks[SITE_ID]['aspro_scorp_form']['aspro_scorp_question'][0] ?>"
-                                      data-name="question"
-                                      data-autoload-NEED_PRODUCT="<?= $arResult['NAME'] ?>"><?= (strlen(
-                                            $arParams['S_ASK_QUESTION']
-                                    ) ? $arParams['S_ASK_QUESTION'] : GetMessage(
-                                            'S_ASK_QUESTION'
                                     )) ?></span>
                             <? endif; ?>
                         </div>
@@ -165,30 +152,21 @@
     $frame->setAnimation(true);
     ?>
     <? // order?>
-    <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
-        <div class="order-block">
-            <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-5 valign">
-                    <span class="btn btn-default btn-lg" data-event="jqm"
-                          data-param-id="<?= CCache::$arIBlocks[SITE_ID]['aspro_scorp_form']['aspro_scorp_order_product'][0] ?>"
-                          data-name="order_product"
-                          data-product="<?= $arResult['NAME'] ?>"><?= (strlen(
-                                $arParams['S_ORDER_PRODUCT']
-                        ) ? $arParams['S_ORDER_PRODUCT'] : GetMessage('S_ORDER_PRODUCT')) ?></span>
-                </div>
-                <div class="col-md-8 col-sm-8 col-xs-7 valign">
-                    <div class="text">
-                        <? $APPLICATION->IncludeComponent(
-                                'bitrix:main.include',
-                                '',
-                                array(
-                                        'AREA_FILE_SHOW' => 'file',
-                                        'PATH' => SITE_DIR . 'include/ask_product.php',
-                                        'EDIT_TEMPLATE' => ''
-                                )
-                        ); ?>
-                    </div>
-                </div>
+    <? if ($arResult['DISPLAY_PROPERTIES']['FORM_QUESTION']['VALUE_XML_ID'] == 'YES'): ?>
+        <div class="md:flex gap-10 my-8 py-10 border-t border-gray-200 border-b">
+            <div>
+                <srong class="block mb-2 text-2xl font-semibold">Есть вопрос?</srong>
+                <p class="text-2xl font-thin leading-8">Cпециалист свяжется с вами в течении 24 часов.</p>
+            </div>
+            <div class="md:ml-auto my-4">
+                <span class="inline-block px-12 py-4 rounded-md bg-gray-400 text-gray-50 uppercase" data-event="jqm"
+                      data-param-id="<?= CCache::$arIBlocks[SITE_ID]['aspro_scorp_form']['aspro_scorp_question'][0] ?>"
+                      data-name="question"
+                      data-autoload-NEED_PRODUCT="<?= $arResult['NAME'] ?>"><?= (strlen(
+                            $arParams['S_ASK_QUESTION']
+                    ) ? $arParams['S_ASK_QUESTION'] : GetMessage(
+                            'S_ASK_QUESTION'
+                    )) ?></span>
             </div>
         </div>
     <? endif; ?>
@@ -236,7 +214,7 @@
         </div>
     <? endif; ?>
 
-    <? if (count($arResult["SEE_ALSO"]) > 0): ?>
+    <? if (count($arResult["SEE_ALSO"]) > 100 ): // TODO ?>
         <div class="wraps">
             <hr/>
             <h4 class="underline"><?= (strlen(
@@ -340,7 +318,7 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.galery[data-gallery]').forEach(function (gallery) {
+        document.querySelectorAll('.gallery[data-gallery]').forEach(function (gallery) {
             const mainImage = gallery.querySelector('[data-main-image]');
             const thumbs = Array.from(gallery.querySelectorAll('[data-thumb]'));
             const lightbox = gallery.querySelector('[data-lightbox]');

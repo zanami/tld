@@ -1,5 +1,5 @@
 <?
-$MESS["S_ORDER_PRODUCT"] = "Заказать товар";
+$MESS["S_ORDER_PRODUCT"] = "Получить КП";
 $MESS["S_ASK_QUESTION"] = "Задать вопрос";
 $MESS["DISCOUNT_PRICE"] = "Цена без скидки:";
 $MESS["SHARE_TEXT"] = "Поделиться ссылкой:";
