@@ -18,7 +18,7 @@ $itemSize = count($arResult);
 
 $strReturn = '
 <nav aria-label="Breadcrumb">
-		<ul class="flex flex-wrap items-center text-gray-500">
+		<ul class="flex flex-wrap items-center text-gray-400 font-thin">
 			<li class="bcItem">
 				<a href="' . SITE_DIR . '">
 					' . Loc::getMessage("BREADCRUMBS_MAIN_PAGE") . '
