@@ -18,10 +18,9 @@ $itemSize = count($arResult);
 
 $strReturn = '
 <nav aria-label="Breadcrumb">
-	<div class="w">
-		<ul class="crumz__wrap flex flex-wrap items-center text-sm text-slate-500">
+		<ul class="flex flex-wrap items-center text-slate-500">
 			<li class="crumz__item">
-				<a href="' . SITE_DIR . '" class="crumz__link">
+				<a href="' . SITE_DIR . '">
 					' . Loc::getMessage("BREADCRUMBS_MAIN_PAGE") . '
 				</a>
 			</li>
@@ -31,14 +30,14 @@ foreach ($arResult as $index => $arItem) {
 	if (($arResult[$index]["LINK"] <> "")) {
 		$strReturn .= '
 			<li class="crumz__item">
-				<a href="' . $arItem['LINK'] . '" class="crumz__link">
+				<a href="' . $arItem['LINK'] . '">
 					' . $arItem['TITLE'] . '
 				</a>
 			</li>
 		';
 	} else {
 		$strReturn .= '
-			<li class="crumz__item crumz__item_current">
+			<li class="crumz__item">
 				' . $arItem['TITLE'] . '
 			</li>
 		';

@@ -101,7 +101,7 @@ $siteName = "БТ	Машинери";
             "bitrix:breadcrumb",
             "main",
             [
-                "START_FROM" => "0",
+                "START_FROM" => "1",
                 "PATH"       => "",
                 "SITE_ID"    => SITE_ID
             ],

@@ -164,15 +164,15 @@
   .content code { @apply bg-gray-100 px-1 py-0.5 rounded text-sm; }
   .content pre { @apply bg-gray-100 p-4 rounded overflow-x-auto; }
 
-  /* все элементы списка — в линию, с отступами */
-  .crumz__item {
+  /* breadcrumbs */
+  .bcItem {
     @apply flex items-center;
   }
 
   /* разделитель между элементами */
-  .crumz__item + .crumz__item::before {
+  .bcItem + .bcItem::before {
     content: "/";
-    margin: 0 0.5rem;
+    margin: 0 0.35rem;
     color: #cbd5f5;
   }
 }
