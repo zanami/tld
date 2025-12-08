@@ -80,13 +80,13 @@ $APPLICATION->SetPageProperty("canonical",$APPLICATION->GetCurPage());
 		$component
 	);?>
 	<?// section elements?>
-<!--	--><?// include_once("include_filter.php");?>
+    <? include_once("include_filter.php");?>
 	<?
 	$frame = new \Bitrix\Main\Page\FrameHelper('catalog-elements-block');
 	$frame->begin();
 	$frame->setAnimation(true);
 	?>
-<!--	--><?// include_once("include_sort.php");?>
+    <? include_once("include_sort.php");?>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:news.list",
             'catalog-table',

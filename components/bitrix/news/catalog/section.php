@@ -85,10 +85,9 @@ $APPLICATION->SetPageProperty("canonical",$APPLICATION->GetCurPage());
 	$frame->setAnimation(true);
 	?>
 	<? include_once("include_sort.php");?>
-	<?$display_template = $display ? 'catalog-'.$display: 'catalog-table';?>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:news.list",
-		$display_template,
+        'catalog-table',
 		array(
 			"S_ASK_QUESTION" => $arParams["S_ASK_QUESTION"],
 			"S_ORDER_PRODUCT" => $arParams["S_ORDER_PRODUCT"],

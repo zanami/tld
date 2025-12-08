@@ -1,0 +1,102 @@
+@media all {
+  [data-template="DROPDOWN"] .sfltr-values {
+    margin-top: -1px;
+    padding: 0;
+  }
+  [data-template="DROPDOWN"] .sfltr-values:before,
+  [data-template="DROPDOWN"] .sfltr-values:after {
+    display: none;
+  }
+
+  [data-display-type="S"] .sfltr-label {
+    padding: 0;
+  }
+
+  [data-display-type="S"] .sfltr-label:after {
+    display: none;
+  }
+  [data-display-type="S"] .bxx-select__search-input:focus {
+    outline: none;
+  }
+
+  [data-display-type="S"] .bxx-select__search {
+    margin: 0;
+  }
+
+  [data-display-type="S"] .bxx-select__search-input {
+    padding: 0 35px 0 10px;
+  }
+  .has-value[data-display-type="S"] .bxx-select__search-input {
+    padding-right: 70px;
+  }
+  [data-display-type="S"] .bxx-select__search-input[placeholder] {
+    text-overflow: ellipsis;
+  }
+  [data-display-type="S"] .bxx-select__search-input::-moz-placeholder {
+    text-overflow: ellipsis;
+  }
+  [data-display-type="S"] .bxx-select__search-input:-moz-placeholder {
+    text-overflow: ellipsis;
+  }
+
+  .bxx-select {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .bxx-select__items-wrapper {
+    max-height: 278px;
+    overflow: auto;
+  }
+  .bxx-select__item {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    margin: 15px 0;
+  }
+  .bxx-select__item._search-filtered {
+    display: none;
+  }
+  .bxx-select__item-input {
+    display: none;
+  }
+
+  .bxx-select__item-name {
+    margin-left: 10px;
+  }
+
+  .bxx-select__search {
+    margin: 0 15px 12px;
+    position: relative;
+  }
+  .bxx-select__search-input {
+    background-color: #f9f8f5;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+    width: 100%;
+  }
+  .bxx-select__search-icon {
+    position: absolute;
+    font-size: 20px;
+    color: #999999;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bxx-select__chose-all {
+    position: absolute;
+    right: 35px;
+    font-size: 12px;
+  }
+  .has-value .bxx-select__chose-all {
+    right: 70px;
+  }
+}

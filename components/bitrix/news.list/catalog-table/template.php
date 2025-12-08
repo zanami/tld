@@ -7,7 +7,7 @@ $colmd = floor(12 / $arParams['COUNT_IN_LINE']);
 $colsm = floor(12 / round($arParams['COUNT_IN_LINE'] / 2));
 $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 ?>
-<div class="catalog item-views table container mx-auto">
+<div class="catalog item-views table container mx-auto my-12">
 	<?if($arResult["ITEMS"]):?>
 		<?if($arParams["DISPLAY_TOP_PAGER"]):?>
 			<?=$arResult["NAV_STRING"]?>
@@ -34,15 +34,30 @@ if($arItem["DISPLAY_PROPERTIES"]["TECH_TYPE"]["VALUE_XML_ID"]) $arItem['DETAIL_P
 				?>
                 <li class="h-full overflow-hidden flex flex-col" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
                         <meta itemprop="position" content="<?=$i++?>" />
-                        <?if($bShowImage):?>
-                            <?if($bDetailLink):?><a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="blink">
-                            <?elseif($imageDetailSrc):?><a href="<?=$imageDetailSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" class="img-inside fancybox" itemprop="url">
+                    <?if($bShowImage):?>
+                        <div class="relative mb-8 h-56 rounded-3xl overflow-hidden">
+                            <?if($bDetailLink):?>
+                            <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="block h-full">
+                                <?elseif($imageDetailSrc):?>
+                                <a href="<?=$imageDetailSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" class="img-inside fancybox block h-full" itemprop="url">
+                                    <?endif;?>
+
+                                    <img
+                                            class="w-full h-full object-cover"
+                                            loading="lazy"
+                                            src="<?=$imageSrc?>"
+                                            alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>"
+                                            title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>"
+                                            itemprop="image"
+                                    />
+
+                                    <!-- полупрозрачный overlay -->
+                                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/5 via-black/3 to-black/7"></div>
+                                    <?if($bDetailLink || $imageDetailSrc):?>
+                                </a>
                             <?endif;?>
-                                <img class="w-full rounded-3xl h-56 object-cover mb-8" loading="lazy" src="<?=$imageSrc?>" alt="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['ALT'] : $arItem['NAME'])?>" title="<?=($bImage ? $arItem['FIELDS']['PREVIEW_PICTURE']['TITLE'] : $arItem['NAME'])?>" itemprop="image" />
-                            <?if($bDetailLink):?></a>
-                            <?elseif($imageDetailSrc):?><span class="zoom"><i class="fa fa-16 fa-white-shadowed fa-search"></i></span></a>
-                            <?endif;?>
-                        <?endif;?>
+                        </div>
+                    <?endif;?>
 
 						<div class="tracking-wide flex flex-col flex-1">
                             <?// element name?>

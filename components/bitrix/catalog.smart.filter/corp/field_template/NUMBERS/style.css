@@ -1,0 +1,43 @@
+@media all {
+  .filter-slider {
+    margin-bottom: 16px;
+  }
+  .irs-bar.irs-bar--filtered-out {
+    background: repeating-linear-gradient(
+        45deg,
+        #ddd,
+        #ddd 10px,
+        #ccc 10px,
+        #ccc 20px
+      )
+      fixed;
+    top: 33px;
+    height: 10px;
+    border: 1px solid #ccc;
+  }
+  .irs-bar.irs-bar--filtered-out._left {
+    border-right-color: var(--primary-color);
+  }
+  .irs-bar.irs-bar--filtered-out._right {
+    border-left-color: var(--primary-color);
+  }
+
+  .filter-numbers_input-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  .filter-numbers_input {
+    width: 40%;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    padding: 0 8px;
+  }
+  .sfltr-field:not(._open) .irs-from,
+  .sfltr-field:not(._open) .irs-to,
+  .sfltr-field:not(._open) .irs-single,
+  .sfltr-field:not(._open) .irs-min,
+  .sfltr-field:not(._open) .irs-max {
+    visibility: hidden !important;
+  }
+}

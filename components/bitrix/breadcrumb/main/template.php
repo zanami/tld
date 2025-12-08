@@ -7,9 +7,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 
-global $APPLICATION;
-
-//delayed function must return a string
 if (empty($arResult)) {
 	return '';
 }
