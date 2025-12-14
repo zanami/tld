@@ -2,7 +2,11 @@
 /* Импорт шрифта (переменный) */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap&subset=latin,cyrillic');
 
+@import './components/jqm-modal.css';
+@import './components/forms.css';
+
 @custom-variant dark (&:where(.dark, .dark *));
+
 
 @theme {
   /* Screen Breakpoints */

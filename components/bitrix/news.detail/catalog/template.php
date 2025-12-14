@@ -121,10 +121,11 @@
                     <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
                         <div class="order my-4">
                             <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
-                                <span class="inline-block px-12 py-4 rounded-md bg-amber-500 text-gray-950 uppercase" data-event="jqm"
+                                <span class="inline-block px-12 py-4 rounded-md bg-amber-500 text-gray-950 uppercase cursor-pointer" data-event="jqm"
                                       data-param-id="<?= CCache::$arIBlocks[SITE_ID]['aspro_scorp_form']['aspro_scorp_order_product'][0] ?>"
                                       data-name="order_product"
-                                      data-product="<?= $arResult['NAME'] ?>"><?= (strlen(
+                                      data-form="formnew"
+                                      data-autoload-product="<?= $arResult['NAME'] ?>"><?= (strlen(
                                             $arParams['S_ORDER_PRODUCT']
                                     ) ? $arParams['S_ORDER_PRODUCT'] : GetMessage(
                                             'S_ORDER_PRODUCT'
@@ -159,9 +160,10 @@
                 <p class="text-2xl font-thin leading-8">Cпециалист свяжется с вами в течении 24 часов.</p>
             </div>
             <div class="md:ml-auto my-4">
-                <span class="inline-block px-12 py-4 rounded-md bg-gray-400 text-gray-50 uppercase" data-event="jqm"
+                <span class="inline-block px-12 py-4 rounded-md bg-gray-400 text-gray-50 uppercase cursor-pointer" data-event="jqm"
                       data-param-id="<?= CCache::$arIBlocks[SITE_ID]['aspro_scorp_form']['aspro_scorp_question'][0] ?>"
                       data-name="question"
+                      data-form="formnew"
                       data-autoload-NEED_PRODUCT="<?= $arResult['NAME'] ?>"><?= (strlen(
                             $arParams['S_ASK_QUESTION']
                     ) ? $arParams['S_ASK_QUESTION'] : GetMessage(

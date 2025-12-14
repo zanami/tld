@@ -1,0 +1,140 @@
+@layer components {
+    /* если jqModal создаёт .jqmOverlay — фон лучше туда */
+    .jqmOverlay {
+        @apply fixed inset-0 bg-black/50 backdrop-blur-md;
+    }
+
+    /* окно — только позиционирование и размеры */
+    .jqmWindow {
+        @apply fixed left-1/2 -translate-x-1/2
+        w-[calc(100vw-2rem)] max-w-lg;
+    }
+
+    /* контент — ограничиваем высоту и даём скролл */
+    .jqmContent {
+        @apply w-full rounded-2xl bg-white px-8 py-8 shadow-lg ring-1 ring-black/5
+        max-h-[calc(100vh-2rem)] overflow-y-auto;
+    }
+    span.jqmClose {
+        @apply cursor-pointer flex w-[50px] h-[50px] text-3xl min-w-0 rounded-full absolute top-[10px] right-[10px] justify-center items-center;
+
+        &:hover {
+            @apply bg-gray-200;
+        }
+    }
+
+.modal-w-400 {
+    max-width: 440px;
+}
+
+    .modal-header {
+        @apply relative bg-white;
+        padding: 60px 44px 0;
+    }
+
+    .modal-title {
+        @apply w-full p-0 text-3xl font-medium text-black normal-case text-center leading-none;
+    }
+
+    .btn.modal-close-btn {
+        @apply w-[50px] h-[50px] min-w-0 rounded-full absolute top-[10px] right-[10px] justify-center items-center;
+
+        &:hover {
+            @apply bg-gray-900;
+        }
+    }
+
+    .modal-close-btn__icon svg {
+        @apply hidden;
+    }
+
+    .modal-body {
+        padding: 0 44px 50px;
+    }
+
+    .modal-close-btn__icon {
+        @apply relative flex-shrink-0;
+        width: 17px;
+        height: 17px;
+    }
+
+    .modal-close-btn__icon:before,
+    .modal-close-btn__icon:after {
+        @apply absolute w-[3px] h-[20px] bg-gray-900;
+        content: " ";
+        top: -1px;
+        left: 7px;
+    }
+
+    .btn.modal-close-btn:hover .modal-close-btn__icon:before,
+    .btn.modal-close-btn:hover .modal-close-btn__icon:after,
+    .btn.modal-close-btn:active .modal-close-btn__icon:before,
+    .btn.modal-close-btn:hover .modal-close-btn__icon:after {
+        @apply bg-white;
+    }
+
+    .modal-close-btn__icon:before {
+        transform: rotate(45deg);
+    }
+
+    .modal-close-btn__icon:after {
+        transform: rotate(-45deg);
+    }
+
+.sdbMobile {
+    .btn.modal-close-btn {
+        @apply hidden;
+    }
+
+    .modal-title {
+        font-size: 25px;
+    }
+
+    .modal-content {
+        @apply mt-0;
+    }
+
+    .modal-header {
+        @apply pt-0;
+    }
+
+    .modal-body {
+        @apply pt-0 pb-[30px] px-[30px];
+    }
+
+    .btn {
+        height: 45px;
+    }
+}
+
+    @media (max-width: 1024px) {
+        .modal-title {
+            @apply text-2xl;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .modal-content {
+            @apply mx-auto my-[30px];
+        }
+    }
+
+    @media (max-width: 560px) {
+        .modal-title {
+            @apply text-2xl;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .modal-content {
+            @apply m-0 max-w-full h-full;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .modal-title {
+            @apply text-xl;
+        }
+    }
+
+}

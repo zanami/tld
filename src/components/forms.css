@@ -1,0 +1,74 @@
+@layer components {
+    .bzx-form .block { @apply relative; }
+
+    /* input style */
+    .bzx-form .form-control,
+    .bzx-form textarea.form-control {
+        @apply w-full rounded-md border border-amber-200 bg-amber-100/70
+        px-4 pt-4 pb-2 text-xl text-black font-thin
+        focus:outline-none focus:ring-0 focus:border-amber-300;
+    }
+
+    /* label как placeholder поверх поля (label ДО input — это ок) */
+    .bzx-form .block > label {
+        @apply pointer-events-none absolute left-4 top-1/2 -translate-y-1/2
+        font-thin
+        text-xl text-black/40 transition-all duration-200;
+    }
+
+    /* когда фокус внутри блока — label уезжает вверх */
+    .bzx-form .block:focus-within > label {
+        @apply top-1 translate-y-0 text-xs text-black/60;
+    }
+
+    /* когда поле не пустое — label остаётся наверху */
+    .bzx-form .block:has(.form-control:not(:placeholder-shown)) > label {
+        @apply top-1 translate-y-0 text-xs text-black/60;
+    }
+
+    /* если есть textarea */
+    .bzx-form .block:has(textarea.form-control:not(:placeholder-shown)) > label {
+        @apply top-1 translate-y-0 text-xs text-black/60;
+    }
+
+    /* твои <i class="fa ..."> лучше скрыть */
+    .bzx-form .block > i.fa { @apply hidden; }
+
+    /* label в этом блоке НЕ должен быть absolute */
+    .bzx-form .block[data-sid="AGREEMENT"] > label {
+        @apply text-sm static not-sr-only pointer-events-auto translate-y-0;
+        position: static;            /* на всякий */
+        transform: none;             /* на всякий */
+    }
+    .bzx-form .block > label.error {
+        display: none !important;
+    }
+
+    .bzx-form .block.error .form-control {
+        @apply border-rose-500 ring-2 ring-rose-500/25;
+    }
+
+    /* строка: чекбокс + label */
+    .bzx-form .block[data-sid="AGREEMENT"] > input[type="checkbox"] {
+        @apply inline-block align-middle h-4 w-4 accent-amber-500;
+    }
+
+    .bzx-form .block[data-sid="AGREEMENT"] > input[type="checkbox"] + label {
+        @apply inline-block align-middle ml-3 cursor-pointer
+        font-medium text-black;
+    }
+
+    /* описание ниже */
+    .bzx-form .block[data-sid="AGREEMENT"] .text-sm {
+        @apply mt-3 text-xl leading-snug text-black/90;
+    }
+
+    .bzx-form .block[data-sid="AGREEMENT"] .text-sm a {
+        @apply text-amber-500 underline underline-offset-4;
+    }
+    /* если у кнопки вдруг нет .btn (бывает) */
+    .bzx-form .btn {
+        @apply inline-block px-12 py-4 rounded-md bg-amber-500 text-gray-950 uppercase cursor-pointer
+        active:translate-y-px transition;
+    }
+}

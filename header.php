@@ -1,7 +1,15 @@
 <?php
+use Bitrix\Main\UI\Extension;
+
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 CModule::IncludeModule("aspro.scorp");
+Extension::load([
+	'tld.jqmpopup',
+    'btmcn.validate',
+    'btmcn.validator',
+	'btmcn.inputmask',
 
+]);
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
 }
@@ -29,6 +37,7 @@ $siteName = "БТ	Машинери";
 
     <!-- ==== WOW JS ==== -->
     <script src="<?= SITE_TEMPLATE_PATH ?>/assets/js/wow.min.js"></script>
+
     <script>
       new WOW().init();
     </script>
@@ -43,6 +52,7 @@ $siteName = "БТ	Машинери";
 </head>
 
 <body class="<? $APPLICATION->ShowProperty('BodyClass'); ?>" <? $APPLICATION->ShowProperty('BodyTag'); ?>>
+    <?CScorp::SetJSOptions();?>
 
 	<? $APPLICATION->ShowPanel() ?>
 
