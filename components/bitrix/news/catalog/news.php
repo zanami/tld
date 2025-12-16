@@ -13,29 +13,48 @@
 	);?>
 </div>
 <?
+
+$sectionsView = $arParams['SECTIONS_VIEW'] ?? 'cards'; // pills|links
+
 // get section items count and subsections 
 $arItemFilter = CScorp::GetCurrentSectionElementFilter($arResult["VARIABLES"], $arParams, false);
 $arSubSectionFilter = CScorp::GetCurrentSectionSubSectionFilter($arResult["VARIABLES"], $arParams, false);
 $itemsCnt = CCache::CIBlockElement_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]))), $arItemFilter, array());
 $arSubSections = CCache::CIBlockSection_GetList(array("CACHE" => array("TAG" => CCache::GetIBlockCacheTag($arParams["IBLOCK_ID"]), "MULTI" => "Y")), $arSubSectionFilter, false, array("ID"));
+$sectionsView = $arParams['SECTIONS_VIEW'] ?? 'catalog-sections'; // pills|links
+$sectionsIblockId = (int)($arParams['SECTIONS_IBLOCK_ID'] ?? $arParams['IBLOCK_ID']);
 
 $APPLICATION->SetPageProperty("canonical",$APPLICATION->GetCurPage());
 ?>
 <?if(!$itemsCnt && !$arSubSections):?>
 	<div class="alert alert-warning"><?=GetMessage("SECTION_EMPTY")?></div>
 <?else:?>
+
+    <?php
+    $res = CIBlock::GetByID((int)$arParams['IBLOCK_ID']);
+    if ($iblock = $res->GetNext()):
+    ?>
+    <?php if (!empty($iblock['DESCRIPTION'])): ?>
+        <div class="container mx-auto">
+            <div class="text-2xl leading-9 font-thin">
+                <?=$iblock['DESCRIPTION']?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
 	<?// sections?>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:news.list",
 		"catalog-sections",
 		Array(
 			"COUNT_IN_LINE" => "2",
+            "SECTIONS_VIEW" => $sectionsView,
 			"SHOW_SECTION_PREVIEW_DESCRIPTION" => $arParams["SHOW_SECTION_PREVIEW_DESCRIPTION"],
 			"VIEW_TYPE" => "list",
 			"SHOW_TABS" => $arParams["SHOW_TABS"],
 			"IMAGE_POSITION" => "left",
 			"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
-			"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
+			"IBLOCK_ID"	=>	$sectionsIblockId,
 			"NEWS_COUNT"	=>	$arParams["NEWS_COUNT"],
 			"SORT_BY1"	=>	$arParams["SORT_BY1"],
 			"SORT_ORDER1"	=>	$arParams["SORT_ORDER1"],
