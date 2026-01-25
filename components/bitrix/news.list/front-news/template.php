@@ -95,6 +95,20 @@ $frame->setAnimation(true);
 
         <?php endforeach; ?>
     </ul>
+    <div class="container mx-auto px-4 mt-12 text-center">
+        <a
+                href="<?= $arResult['LIST_PAGE_URL'] ?>"
+                class="uppercase inline-flex items-center gap-2 text-base md:text-lg font-medium
+               text-black/70 hover:text-black transition-colors"
+        >
+            Все новости
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7" />
+            </svg>
+        </a>
+    </div>
 <?php endif; ?>
 
 <?php $frame->end(); ?>
