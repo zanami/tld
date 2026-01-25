@@ -14,7 +14,8 @@ if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
 }
 $isMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR || $APPLICATION->GetCurPage(false) === '/index2.php';
-$headerClass = $isMainPage ? ' top-0 left-0 z-40 dark mb-10' : 'mb-10';
+$hasBxPanel = $USER->IsAdmin();
+$headerClass = $isMainPage ? ' absolute top-0 left-0 z-40 dark mb-10' : 'mb-10';
 $siteName = "БТ	Машинери";
 ?>
 <!DOCTYPE html>
@@ -56,7 +57,7 @@ $siteName = "БТ	Машинери";
 
 	<? $APPLICATION->ShowPanel() ?>
 
-    <header class="flex items-center w-full bg-transparent ud-header <?= $headerClass ?>">
+    <header class="flex items-center w-full bg-transparent ud-header <?= $headerClass ?> <?= $hasBxPanel ? 'with-bx-panel' : '' ?>">
         <div class="container mx-auto">
             <div class="relative flex items-center justify-between -mx-4">
                 <div class="max-w-full px-4 w-60">
@@ -98,11 +99,11 @@ $siteName = "БТ	Машинери";
     </header>
 
 	<?php
-
 	if ($APPLICATION->GetProperty('IS_MAIN_PAGE') == 'Y') {
 	?>
 		<main>
 		<?php
+            require($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH.'/frontpage.php');
 	} else {
 		?>
         <div class="container mb-12 mx-auto">

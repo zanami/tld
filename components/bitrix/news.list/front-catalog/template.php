@@ -1,8 +1,6 @@
 <?
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
-?>
-<?
 $frame = $this->createFrame()->begin();
 $frame->setAnimation(true);
 ?>
@@ -11,11 +9,6 @@ $frame->setAnimation(true);
 	$qntyItems = count($arResult['ITEMS']);
 	$bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 	?>
-	<div class="front-catalog mb-12">
-        <div class="mb-12 container mx-auto text-center">
-            <h3 class="mt-12 mb-4 text-5xl">Техника на складе</h3>
-            <p class="mb-2 text-2xl text-gray-400">Купить вилочные погрузчики UN Forklift 1−10 т (дизель/бензин/электро) и складскую технику XILIN. В наличии готовые решения для вашего склада с быстрой отгрузкой!</p>
-        </div>
         <ul class="container mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" itemscope itemtype="https://schema.org/ItemList">
             <?
             $i = 0;
@@ -99,7 +92,6 @@ $frame->setAnimation(true);
                 </li>
             <?endforeach;?>
         </ul>
-	</div>
 <?endif;?>
 
 <?$frame->end();?>
