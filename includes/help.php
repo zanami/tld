@@ -17,6 +17,11 @@
 
                 <a
                     href="#"
+                    data-param-id="21"
+                    data-event="jqm"
+                    data-form="formnew"
+                    data-name="order_services"
+                    data-autoload-service="Гарантийное и Сервисное обслуживание"
                     class="inline-flex mt-8 py-4 px-10 rounded-lg
                  bg-neutral-300 hover:bg-neutral-400 active:bg-neutral-500
                  text-black uppercase tracking-wide

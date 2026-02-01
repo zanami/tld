@@ -8,7 +8,7 @@ Loc::loadMessages(__FILE__);
 ?>
 
 <footer role="contentinfo" class="pt-16 pb-20 bg-neutral-950">
-    <div class="container mx-auto">
+    <div class="container mx-auto px-6">
         <!-- grid: 1 колонка на мобиле, 4 колонки с md -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12">
 

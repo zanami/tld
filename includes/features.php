@@ -18,7 +18,7 @@
                     />
                 </div>
 
-                <h3 class="mt-5 text-xl md:text-2xl font-semibold leading-snug">
+                <h3 class="mt-5 text-xl lg:text-2xl font-semibold leading-snug sm:line-clamp-2 sm:min-h-[4rem]">
                     4 офиса на Дальнем<br />Востоке и Сибири
                 </h3>
 
@@ -38,7 +38,7 @@
                     />
                 </div>
 
-                <h3 class="mt-5 text-xl md:text-2xl font-semibold leading-snug">
+                <h3 class="mt-5 text-xl lg:text-2xl font-semibold leading-snug sm:line-clamp-2 sm:min-h-[4rem]">
                     85 погрузчиков на складе
                 </h3>
 
@@ -58,7 +58,7 @@
                     />
                 </div>
 
-                <h3 class="mt-5 text-xl md:text-2xl font-semibold leading-snug">
+                <h3 class="mt-5 text-xl lg:text-2xl font-semibold leading-snug sm:line-clamp-2 sm:min-h-[4rem]">
                     15 сервисных машин
                 </h3>
 
@@ -78,7 +78,7 @@
                     />
                 </div>
 
-                <h3 class="mt-5 text-xl md:text-2xl font-semibold leading-snug">
+                <h3 class="mt-5 text-xl lg:text-2xl font-semibold leading-snug sm:line-clamp-2 sm:min-h-[4rem]">
                     40 сертифицированных<br />инженеров
                 </h3>
 

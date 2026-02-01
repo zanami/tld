@@ -20,6 +20,7 @@ $siteName = "БТ	Машинери";
 ?>
 <!DOCTYPE html>
 <html lang="<?= LANGUAGE_ID ?>" class="tag-html scroll-smooth">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
 	<?php

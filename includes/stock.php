@@ -1,4 +1,4 @@
-<section class="py-12 md:py-16">
+<section class="py-12 md:py-16 px-6">
     <div class="mb-12 container mx-auto text-center">
         <h3 class="text-3xl md:text-5xl tracking-tight">Техника на складе</h3>
         <p class="mt-4 text-base md:text-xl text-black/80">Купить вилочные погрузчики UN Forklift 1−10 т (дизель/бензин/электро) и складскую технику XILIN. В наличии готовые решения для вашего склада с быстрой отгрузкой!</p>

@@ -11,7 +11,7 @@ $frame->setAnimation(true);
     $bShowImage = in_array('PREVIEW_PICTURE', (array)$arParams['FIELD_CODE'], true);
     ?>
 
-    <ul class="container mx-auto px-4 grid gap-10 grid-cols-1 lg:grid-cols-3"
+    <div class="container mx-auto px-4 grid gap-10 grid-cols-1 lg:grid-cols-3"
         itemscope itemtype="https://schema.org/ItemList">
 
         <?php foreach ($arResult['ITEMS'] as $pos => $arItem): ?>
@@ -51,7 +51,7 @@ $frame->setAnimation(true);
             }
             ?>
 
-            <li class="flex flex-col
+            <div class="flex flex-col
                          overflow-hidden
                          rounded-3xl
                          transition-shadow duration-300
@@ -91,10 +91,10 @@ $frame->setAnimation(true);
                 <?php endif; ?>
                 <?php if ($bDetailLink): ?></a><?php else: ?></div><?php endif; ?>
 
-            </li>
+            </div>
 
         <?php endforeach; ?>
-    </ul>
+    </div>
     <div class="container mx-auto px-4 mt-12 text-center">
         <a
                 href="<?= $arResult['LIST_PAGE_URL'] ?>"
