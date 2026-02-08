@@ -97,7 +97,7 @@ $frame->setAnimation(true);
     </div>
     <div class="container mx-auto px-4 mt-12 text-center">
         <a
-                href="<?= $arResult['LIST_PAGE_URL'] ?>"
+                href="<?=str_replace('#SITE'.'_DIR#', SITE_DIR, $arResult['LIST_PAGE_URL'])?>"
                 class="uppercase inline-flex items-center gap-2 text-base md:text-lg font-medium
                text-black/70 hover:text-black transition-colors"
         >

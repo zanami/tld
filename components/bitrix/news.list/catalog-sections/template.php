@@ -7,18 +7,18 @@ $view = $arParams['SECTIONS_VIEW'] ?? 'cards'; // cards | links
 
 <?if($arResult['SECTIONS']):?>
     <?php if ($view === 'list'): ?>
-        <div class="catalog item-views table container mx-auto my-12">
+        <div class="catalog item-views table container mx-auto px-4 my-12">
             <div class="flex flex-wrap gap-2">
                 <?php foreach ($arResult['SECTIONS'] as $arItem): ?>
                     <a href="<?=$arItem['SECTION_PAGE_URL']?>"
-                       class="text-shadow-slate-900 rounded-md bg-amber-400 px-4 py-3">
+                       class="text-shadow-slate-900 rounded-md bg-accent px-4 py-3">
                         <?=htmlspecialcharsbx($arItem['NAME'])?>
                     </a>
                 <?php endforeach; ?>
             </div>
         </div>
     <?php else: ?>
-        <div class="catalog item-views table container mx-auto my-12">
+        <div class="catalog item-views table container mx-auto px-4 my-12">
             <ul class="grid gap-8 grid-cols-1 md:grid-cols-3">
                 <?foreach($arResult['SECTIONS'] as $arItem):?>
                     <?

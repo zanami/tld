@@ -12,9 +12,9 @@ $previousLevel = 0;
         <button id="navbarToggler"
                 class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
                 type="button" aria-controls="navbarCollapse" aria-expanded="false">
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-amber-500"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-amber-500"></span>
-            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-amber-500"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-accent"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-accent"></span>
+            <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-accent"></span>
         </button>
 
         <!-- Навигация -->

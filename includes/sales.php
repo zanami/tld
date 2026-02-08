@@ -48,7 +48,7 @@
                 <a
                     href="/oborudovanie-bu/?tpl=new"
                     class="inline-flex items-center justify-center mt-auto py-3 px-10 rounded-xl
-                 bg-orange-400 hover:bg-orange-500 active:bg-orange-600
+                 bg-accent hover:bg-orange-500 active:bg-orange-600
                  text-black uppercase tracking-wide
                  transition-colors w-fit self-start"
                 >
@@ -91,7 +91,7 @@
                 <a
                     href="/services/garantiynoe-i-sevrisnoe-obsluzhivanie/"
                     class="inline-flex items-center justify-center mt-auto px-10 py-3 rounded-xl
-                 bg-orange-400 hover:bg-orange-500 active:bg-orange-600
+                 bg-accent hover:bg-orange-500 active:bg-orange-600
                  text-black uppercase tracking-wide
                  transition-colors w-fit self-start"
                 >

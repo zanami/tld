@@ -86,7 +86,7 @@ $frame->setAnimation(true);
                             <?endif;?>
                         </div>
                         <?if($bDetailLink):?>
-                            <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="inline-block px-4 py-3 rounded-md bg-amber-500 text-gray-950 uppercase">Купить со скидкой</a>
+                            <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="inline-block px-4 py-3 rounded-md bg-accent text-gray-950 uppercase">Купить со скидкой</a>
                         <?endif;?>
                     </div>
                 </li>

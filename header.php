@@ -107,7 +107,7 @@ $siteName = "БТ	Машинери";
             require($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH.'/frontpage.php');
 	} else {
 		?>
-        <div class="container mb-12 mx-auto">
+        <div class="container mb-12 mx-auto px-4">
         <h1 class="page-title mb-10 mt-4 text-5xl"><?$APPLICATION->ShowTitle(false)?></h1>
         <?$APPLICATION->IncludeComponent(
             "bitrix:breadcrumb",

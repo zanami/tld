@@ -15,7 +15,7 @@
 
     <!-- Content -->
     <div class="relative z-10 h-full flex items-center">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4">
             <div class="max-w-2xl text-white">
                 <h2 class="text-4xl md:text-5xl font-semibold tracking-tight">
                     Предложение месяца!
@@ -29,7 +29,7 @@
                 <a
                     href="/oborudovanie-bu/?tpl=new"
                     class="inline-flex items-center justify-center mt-8 h-14 px-10 rounded-xl
-                 bg-orange-400 hover:bg-orange-500 active:bg-orange-600
+                 bg-accent hover:bg-orange-500 active:bg-orange-600
                  text-black uppercase tracking-wide
                  transition-colors"
                 >

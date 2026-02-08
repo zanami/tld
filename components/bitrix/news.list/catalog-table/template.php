@@ -7,7 +7,7 @@ $colmd = floor(12 / $arParams['COUNT_IN_LINE']);
 $colsm = floor(12 / round($arParams['COUNT_IN_LINE'] / 2));
 $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 ?>
-<div class="catalog item-views table container mx-auto my-12">
+<div class="catalog item-views table container mx-auto px-4 my-12">
 	<?if($arResult["ITEMS"]):?>
 		<?if($arParams["DISPLAY_TOP_PAGER"]):?>
 			<?=$arResult["NAV_STRING"]?>
@@ -104,7 +104,7 @@ if($arItem["DISPLAY_PROPERTIES"]["TECH_TYPE"]["VALUE_XML_ID"]) $arItem['DETAIL_P
                                 <?endif;?>
                             </div>
                             <?if($bDetailLink):?>
-                                <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="inline-block px-4 py-3 rounded-md bg-amber-500 text-gray-950 uppercase">Купить со скидкой</a>
+                                <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="inline-block px-4 py-3 rounded-md bg-accent text-gray-950 uppercase">Купить со скидкой</a>
                             <?endif;?>
                         </div>
 				</li>

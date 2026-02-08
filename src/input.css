@@ -42,7 +42,8 @@
   --color-gray-1: #f9fafb;
   --color-gray-2: #f3f4f6;
   --color-gray-7: #ced4da;
-
+  --color-accent: #f7a519;
+  
   /* Box Shadows */
   --shadow-input: 0px 7px 20px rgba(0, 0, 0, 0.03);
   --shadow-form: 0px 1px 55px -11px rgba(0, 0, 0, 0.01);

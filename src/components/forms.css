@@ -68,7 +68,7 @@
     }
     /* если у кнопки вдруг нет .btn (бывает) */
     .bzx-form .btn {
-        @apply inline-block px-12 py-4 rounded-md bg-amber-500 text-gray-950 uppercase cursor-pointer
+        @apply inline-block px-12 py-4 rounded-md bg-accent text-gray-950 uppercase cursor-pointer
         active:translate-y-px transition;
     }
 }

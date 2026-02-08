@@ -2,7 +2,7 @@
         true
 ); ?>
 
-<div class="container mb-12 mx-auto">
+<div class="container mb-12 mx-auto px-4">
     <? if (strlen($arResult['FIELDS']['PREVIEW_TEXT'])): ?>
         <div class="mb-2 text-2xl leading-9 font-thin max-w-3xl">
             <? if ($arResult['DETAIL_TEXT_TYPE'] == 'text'): ?>
@@ -121,7 +121,7 @@
                     <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
                         <div class="order my-4">
                             <? if ($arResult['DISPLAY_PROPERTIES']['FORM_ORDER']['VALUE_XML_ID'] == 'YES'): ?>
-                                <span class="inline-block px-12 py-4 rounded-md bg-amber-500 text-gray-950 uppercase cursor-pointer" data-event="jqm"
+                                <span class="inline-block px-12 py-4 rounded-md bg-accent text-gray-950 uppercase cursor-pointer" data-event="jqm"
                                       data-param-id="<?= CCache::$arIBlocks[SITE_ID]['aspro_scorp_form']['aspro_scorp_order_product'][0] ?>"
                                       data-name="order_product"
                                       data-form="formnew"
