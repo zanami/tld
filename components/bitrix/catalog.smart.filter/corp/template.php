@@ -24,9 +24,9 @@ if (empty($arResult['ITEMS'])) {
 
 ?>
 
-<div class="sf-duplicate hidden container mx-auto px-4" id="sf-duplicate"></div>
+<div class="sf-duplicate hidden " id="sf-duplicate"></div>
 
-<section class="filter sfltr-wrapper container mx-auto px-4">
+<section class="filter sfltr-wrapper ">
     <form name="<? echo $arResult["FILTER_NAME"] . "_form" ?>" action="<? echo $arResult["FORM_ACTION"] ?>" method="get" class="filter-form sfltr row row-clear" id="smartfilter">
         <? foreach ($arResult["HIDDEN"] as $arItem) : ?>
             <input type="hidden" name="<? echo $arItem["CONTROL_NAME"] ?>" id="<? echo $arItem["CONTROL_ID"] ?>" value="<? echo $arItem["HTML_VALUE"] ?>" />

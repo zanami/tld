@@ -35,7 +35,7 @@ $APPLICATION->SetPageProperty("canonical",$APPLICATION->GetCurPage());
     if ($iblock = $res->GetNext()):
     ?>
     <?php if (!empty($iblock['DESCRIPTION'])): ?>
-        <div class="container mx-auto px-4">
+        <div class="">
             <div class="text-2xl leading-9 font-thin">
                 <?=$iblock['DESCRIPTION']?>
             </div>

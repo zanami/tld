@@ -38,6 +38,10 @@
   // ===== wow js
   new WOW().init();
 
+  Fancybox.bind("[data-fancybox]", {
+    // Your custom options
+  });
+
   // ====== scroll top js
   function scrollTo(element, to = 0, duration = 500) {
     const start = element.scrollTop;

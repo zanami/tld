@@ -2,6 +2,9 @@
 use Bitrix\Main\UI\Extension;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+global $APPLICATION;
+
 CModule::IncludeModule("aspro.scorp");
 Extension::load([
 	'tld.jqmpopup',
@@ -12,8 +15,8 @@ Extension::load([
 ]);
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
+    $isMainPage = true;
 }
-$isMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR || $APPLICATION->GetCurPage(false) === '/index2.php';
 $hasBxPanel = $USER->IsAdmin();
 $headerClass = $isMainPage ? ' absolute top-0 left-0 z-40 dark mb-10' : 'mb-10';
 $siteName = "БТ	Машинери";
@@ -39,6 +42,9 @@ $siteName = "БТ	Машинери";
 
     <!-- ==== WOW JS ==== -->
     <script src="<?= SITE_TEMPLATE_PATH ?>/assets/js/wow.min.js"></script>
+    <script src="<?= SITE_TEMPLATE_PATH ?>/assets/js/fancybox/fancybox.umd.js"></script>
+    <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>/assets/js/fancybox/fancybox.css" />
+
 
     <script>
       new WOW().init();
@@ -121,4 +127,8 @@ $siteName = "БТ	Машинери";
         );?>
         </div>
 		<?php
-	}
+	} ?>
+    <?php
+    $APPLICATION->ShowViewContent('AFTER_HEADER');
+    ?>
+

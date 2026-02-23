@@ -6,7 +6,7 @@
     <?php
     $bShowImage = in_array('PREVIEW_PICTURE', (array)$arParams['FIELD_CODE'], true);
     ?>
-    <div class="container mx-auto px-4 grid gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
+    <div class=" grid gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
          itemscope itemtype="https://schema.org/ItemList">
 
         <?php foreach ($arResult['ITEMS'] as $pos => $arItem): ?>

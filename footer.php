@@ -6,7 +6,40 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 Loc::loadMessages(__FILE__);
 ?>
+<?php
+global $APPLICATION;
+$showContainer = $APPLICATION->GetPageProperty("HIDE_CONTAINER") != 'Y' && $APPLICATION->GetPageProperty('IS_MAIN_PAGE') != 'Y';
+$showSubMenu = $showContainer;
+$isContentPage = $APPLICATION->GetPageProperty("CONTENT_PAGE");
+?>
+<?php ob_start(); ?>
+<?php if ($showContainer): ?><div class="container mx-auto px-4"><?php endif; ?>
+    <?php if ($showSubMenu): ?>
+        <?php
+        $APPLICATION->IncludeComponent(
+                "bitrix:menu",
+                "left",
+                [
+                        "ROOT_MENU_TYPE" => "left",
+                        "MENU_CACHE_TYPE" => "A",
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "MENU_CACHE_GET_VARS" => array(),
+                        "MAX_LEVEL" => "4",
+                        "CHILD_MENU_TYPE" => "subleft",
+                        "USE_EXT" => "Y",
+                        "DELAY" => "N",
+                        "ALLOW_MULTI_SELECT" => "Y"
+                ]
+        );
+        ?>
+    <?php endif; ?>
+    <?php if ($isContentPage): ?><div class="content"><?php endif; ?>
 
+    <?php $APPLICATION->AddViewContent("AFTER_HEADER", ob_get_clean()); ?>
+
+<?php if ($showContainer): ?></div><?php endif; ?>
+<?php if ($isContentPage): ?></div><?php endif; ?>
 <footer role="contentinfo" class="pt-16 pb-20 bg-neutral-950">
     <div class="container mx-auto px-4">
         <!-- grid: 1 колонка на мобиле, 4 колонки с md -->

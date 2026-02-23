@@ -43,7 +43,8 @@
   --color-gray-2: #f3f4f6;
   --color-gray-7: #ced4da;
   --color-accent: #f7a519;
-  
+  --color-link: #e65100;
+
   /* Box Shadows */
   --shadow-input: 0px 7px 20px rgba(0, 0, 0, 0.03);
   --shadow-form: 0px 1px 55px -11px rgba(0, 0, 0, 0.01);
@@ -164,8 +165,6 @@
 
   .content .underline {text-decoration-line: none !important;}
 
-  .content h4 { @apply text-4xl font-semibold mt-6 mb-8; }
-
   .content code { @apply bg-gray-100 px-1 py-0.5 rounded text-sm; }
   .content pre { @apply bg-gray-100 p-4 rounded overflow-x-auto; }
 
@@ -179,5 +178,43 @@
     content: "/";
     margin: 0 0.35rem;
     @appy text-neutral-600;
+  }
+  .content {
+    @apply text-base leading-relaxed text-gray-800;
+  }
+
+  .content h1 {
+    @apply text-4xl font-bold mb-6 mt-10;
+  }
+
+  .content h2 {
+    @apply text-3xl font-semibold mb-5 mt-8;
+  }
+
+  .content h3 {
+    @apply text-2xl font-semibold mb-4 mt-6;
+  }
+  .content h4 {
+    @apply text-xl font-semibold mt-6 mb-8;
+  }
+
+  .content p {
+    @apply mb-4;
+  }
+
+  .content ul {
+    @apply list-disc pl-6 mb-4 space-y-2;
+  }
+
+  .content ol {
+    @apply list-decimal pl-6 mb-4 space-y-2;
+  }
+
+  .content a {
+    @apply text-link underline hover:no-underline;
+  }
+
+  .content blockquote {
+    @apply border-l-4 border-accent pl-4 italic my-6;
   }
 }

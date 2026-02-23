@@ -1,6 +1,6 @@
 <?if($itemsCnt):?>
     <!-- noindex -->
-    <div class="container mx-auto px-4 my-6">
+    <div class=" my-6">
         <?
         if($arResult['VARIABLES']['SECTION_ID']){
             $arSectiontmp = CIBlockSection::GetList(array(), array('IBLOCK_ID' => $arParams['IBLOCK_ID'], 'ID' => $arResult['VARIABLES']['SECTION_ID']), false, array('ID',  'UF_VIEWTYPE'))->GetNext();

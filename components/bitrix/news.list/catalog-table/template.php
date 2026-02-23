@@ -7,7 +7,7 @@ $colmd = floor(12 / $arParams['COUNT_IN_LINE']);
 $colsm = floor(12 / round($arParams['COUNT_IN_LINE'] / 2));
 $bShowImage = in_array('PREVIEW_PICTURE', $arParams['FIELD_CODE']);
 ?>
-<div class="catalog item-views table container mx-auto px-4 my-12">
+<div class="catalog item-views table  my-12">
 	<?if($arResult["ITEMS"]):?>
 		<?if($arParams["DISPLAY_TOP_PAGER"]):?>
 			<?=$arResult["NAV_STRING"]?>
