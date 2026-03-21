@@ -1,41 +1,48 @@
-<section class="w-full h-[400px] relative overflow-hidden">
-    <!-- Background image -->
-    <div
-        class="absolute inset-0 bg-center bg-cover"
-        style="background-image: url('<?=SITE_TEMPLATE_PATH?>/assets/images/front/big-banner.jpg');"
-        aria-hidden="true"
-    ></div>
-
-    <!-- Gradient dark overlay -->
-    <div
-        class="absolute inset-0"
-        style="background-image: linear-gradient(rgba(51, 51, 51, 0.1), rgba(51, 51, 51, 0.8));"
-        aria-hidden="true"
-    ></div>
-
-    <!-- Content -->
-    <div class="relative z-10 h-full flex items-center">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl text-white">
-                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight">
-                    Предложение месяца!
-                </h2>
-
-                <p class="mt-4 text-lg md:text-xl font-semibold leading-snug text-white/90">
-                    С 1 апреля — лучшие предложения<br />
-                    на складскую технику. Покупайте по лучшей цене!
-                </p>
-
-                <a
-                    href="/oborudovanie-bu/?tpl=new"
-                    class="inline-flex items-center justify-center mt-8 h-14 px-10 rounded-xl
-                 bg-accent hover:bg-orange-500 active:bg-orange-600
-                 text-black uppercase tracking-wide
-                 transition-colors"
-                >
-                    Выбрать технику
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+<?php
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+?>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "front-banners-big",
+    Array(
+        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+        "ADD_SECTIONS_CHAIN" => "N",
+        "AJAX_MODE" => "N",
+        "AJAX_OPTION_ADDITIONAL" => "",
+        "AJAX_OPTION_HISTORY" => "N",
+        "AJAX_OPTION_JUMP" => "N",
+        "AJAX_OPTION_STYLE" => "Y",
+        "CACHE_FILTER" => "Y",
+        "CACHE_GROUPS" => "N",
+        "CACHE_TIME" => "3600000",
+        "CACHE_TYPE" => "A",
+        "CHECK_DATES" => "Y",
+        "DETAIL_URL" => "",
+        "DISPLAY_BOTTOM_PAGER" => "N",
+        "DISPLAY_TOP_PAGER" => "N",
+        "FIELD_CODE" => array("NAME", "PREVIEW_TEXT", "PREVIEW_PICTURE", "DETAIL_PICTURE", ""),
+        "FILTER_NAME" => "",
+        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+        "IBLOCK_ID" => CCache::$arIBlocks[SITE_ID]["aspro_scorp_content"]["aspro_scorp_advtbig"][0],
+        "IBLOCK_TYPE" => "aspro_scorp_content",
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "INCLUDE_SUBSECTIONS" => "N",
+        "NEWS_COUNT" => "30",
+        "PAGER_DESC_NUMBERING" => "N",
+        "PAGER_DESC_NUMBERING_CACHE_TIME" => "3600000",
+        "PAGER_SHOW_ALL" => "N",
+        "PAGER_SHOW_ALWAYS" => "N",
+        "PAGER_TEMPLATE" => ".default",
+        "PAGER_TITLE" => "Новости",
+        "PARENT_SECTION" => "",
+        "PARENT_SECTION_CODE" => "",
+        "PREVIEW_TRUNCATE_LEN" => "",
+        "PROPERTY_CODE" => array("BANNERTYPE", "TEXTCOLOR", "LINKIMG", "BUTTON1TEXT", "BUTTON1LINK", "BUTTON1CLASS", "BUTTON2TEXT", "BUTTON2LINK", "BUTTON2CLASS", ""),
+        "SET_STATUS_404" => "N",
+        "SET_TITLE" => "N",
+        "SORT_BY1" => "SORT",
+        "SORT_BY2" => "ID",
+        "SORT_ORDER1" => "ASC",
+        "SORT_ORDER2" => "ASC"
+    )
+);?>
