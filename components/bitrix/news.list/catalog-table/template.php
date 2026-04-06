@@ -32,10 +32,10 @@ if($arItem["DISPLAY_PROPERTIES"]["TECH_TYPE"]["VALUE_XML_ID"]) $arItem['DETAIL_P
 				// use order button?
 				$bOrderButton = $arItem["DISPLAY_PROPERTIES"]["FORM_ORDER"]["VALUE_XML_ID"] == "YES";
 				?>
-                <li class="h-full overflow-hidden flex flex-col" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
+                <li class="h-full overflow-hidden flex flex-col pb-4" id="<?=$this->GetEditAreaId($arItem['ID'])?>">
                         <meta itemprop="position" content="<?=$i++?>" />
                     <?if($bShowImage):?>
-                        <div class="relative mb-8 h-56 rounded-3xl overflow-hidden">
+                        <div class="relative mb-4 h-56 rounded-3xl overflow-hidden">
                             <?if($bDetailLink):?>
                             <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="block h-full">
                                 <?elseif($imageDetailSrc):?>
