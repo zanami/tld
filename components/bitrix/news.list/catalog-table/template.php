@@ -25,7 +25,7 @@ if($arItem["DISPLAY_PROPERTIES"]["TECH_TYPE"]["VALUE_XML_ID"]) $arItem['DETAIL_P
 				// preview image
 				if($bShowImage){
 					$bImage = strlen($arItem['FIELDS']['PREVIEW_PICTURE']['SRC']);
-					$arImage = ($bImage ? CFile::ResizeImageGet($arItem['FIELDS']['PREVIEW_PICTURE']['ID'], array('width' => 160, 'height' => 160), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true) : array());
+					$arImage = ($bImage ? CFile::ResizeImageGet($arItem['FIELDS']['PREVIEW_PICTURE']['ID'], array('width' => 400, 'height' => 300), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, true) : array());
 					$imageSrc = ($bImage ? $arImage['src'] : SITE_TEMPLATE_PATH.'/images/noimage_product.png');
 					$imageDetailSrc = ($bImage ? $arItem['FIELDS']['DETAIL_PICTURE']['SRC'] : false);
 				}

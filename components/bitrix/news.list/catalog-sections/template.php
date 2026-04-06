@@ -48,7 +48,7 @@ $view = $arParams['SECTIONS_VIEW'] ?? 'cards'; // cards | links
                         $arSectionImage = ($bImage
                                 ? CFile::ResizeImageGet(
                                         $arItem['PICTURE'],
-                                        ['width' => 400, 'height' => 260],
+                                        ['width' => 400, 'height' => 300],
                                         BX_RESIZE_IMAGE_PROPORTIONAL,
                                         true
                                 )
