@@ -1658,6 +1658,13 @@
       }
     }
   }
+  .group-hover\:text-accent {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-accent);
+      }
+    }
+  }
   .group-hover\:text-primary {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -2217,6 +2224,11 @@
     @media (width >= 960px) {
       font-size: var(--text-6xl);
       line-height: var(--tw-leading, var(--text-6xl--line-height));
+    }
+  }
+  .lg\:text-accent {
+    @media (width >= 960px) {
+      color: var(--color-accent);
     }
   }
   .lg\:text-body-color {

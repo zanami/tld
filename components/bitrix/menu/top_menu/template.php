@@ -1,10 +1,12 @@
 <?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+global $APPLICATION;
 /**
  * Ожидает в $arResult поля: DEPTH_LEVEL, IS_PARENT, SELECTED, PERMISSION, LINK, TEXT
  * Параметры компонента: MAX_LEVEL>=2, USE_EXT (по необходимости), CHILD_MENU_TYPE задан.
  */
 $previousLevel = 0;
+$isMainPage = $APPLICATION->GetProperty('IS_MAIN_PAGE') === 'Y';
 ?>
 <div class="flex flex-1 items-center justify-end">
     <div class="relative flex items-center justify-end">
@@ -39,15 +41,19 @@ $previousLevel = 0;
                 $isFirstTop = ($isTop && $i === array_key_first($arResult));
 
                 // Классы ссылок верхнего уровня
-                $topLink = "flex py-2 mx-6 uppercase text-lg font-medium ud-menu-scroll text-dark dark:text-white group-hover:text-primary lg:mr-0 ".
+                $topLinkColor = $isMainPage
+                    ? "text-dark dark:text-white group-hover:text-primary lg:text-body-color dark:lg:text-amber-500"
+                    : "text-accent group-hover:text-accent lg:text-accent";
+
+                $topLink = "flex py-2 mx-6 uppercase text-lg font-medium ud-menu-scroll {$topLinkColor} lg:mr-0 ".
                     ($isFirstTop ? "" : "lg:ml-4 xl:ml-6 ").
-                    "lg:inline-flex lg:py-2 lg:px-0 lg:text-body-color dark:lg:text-amber-500";
+                    "lg:inline-flex lg:py-2 lg:px-0";
 
                 // Классы ссылок подуровней (компактные)
                 $subLink = "block px-4 py-2 text-base text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-dark-3";
 
                 // Active
-                $active = !empty($arItem["SELECTED"]) ? " text-primary lg:text-primary" : "";
+                $active = (!empty($arItem["SELECTED"]) && $isMainPage) ? " text-primary lg:text-primary" : "";
                 ?>
 
                 <?php if ($arItem["IS_PARENT"]): ?>

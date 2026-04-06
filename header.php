@@ -13,12 +13,15 @@ Extension::load([
 	'btmcn.inputmask',
 
 ]);
+$isMainPage = false;
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
 	$APPLICATION->SetPageProperty('IS_MAIN_PAGE', 'Y');
     $isMainPage = true;
 }
 $hasBxPanel = $USER->IsAdmin();
 $headerClass = $isMainPage ? ' absolute top-0 left-0 z-40 dark mb-10' : 'mb-10';
+$defaultLogoClass = $isMainPage ? 'w-full dark:hidden' : 'hidden';
+$accentLogoClass = $isMainPage ? 'hidden w-full dark:block' : 'w-full';
 $siteName = "БТ	Машинери";
 ?>
 <!DOCTYPE html>
@@ -69,14 +72,14 @@ $siteName = "БТ	Машинери";
             <div class="relative flex items-center justify-between">
                 <div class="max-w-full w-60 shrink-0">
                     <a href="<?= SITE_DIR ?>" class="block w-full py-0 navbar-logo">
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
-                                alt="logo"
-                                class="w-full dark:hidden"
-                        />
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo-white.svg"
-                                alt="logo"
-                                class="hidden w-full dark:block"
-                        />
+	                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
+	                                alt="logo"
+	                                class="<?= $defaultLogoClass ?>"
+	                        />
+	                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo-white.svg"
+	                                alt="logo"
+	                                class="<?= $accentLogoClass ?>"
+	                        />
                         <span class="sr-only">
                             <span><?= $siteName ?></span>
                             <span>Погрузчики TEU и Xilin. Складская техника.</span>
