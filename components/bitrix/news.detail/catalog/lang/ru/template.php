@@ -11,5 +11,5 @@ $MESS["T_CHARACTERISTICS"] = "Характеристики";
 $MESS["T_DOCS"] = "Документы";
 $MESS["T_PROJECTS"] = "Проекты";
 $MESS["T_VIDEO"] = "Видео";
-$MESS["T_SEEALSO"] = "Это может быть полезно:";
+$MESS["T_SEEALSO"] = "Это может быть полезно";
 ?>

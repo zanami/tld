@@ -216,38 +216,33 @@
         </div>
     <? endif; ?>
 
-    <? if (count($arResult["SEE_ALSO"]) > 100 ): // TODO ?>
-        <div class="wraps">
-            <hr/>
+    <? if (count($arResult["SEE_ALSO"]) > 0 ): ?>
+        <div class="wraps content">
             <h4 class="underline"><?= (strlen(
                         $arParams['T_SEEALSO']
                 ) ? $arParams['T_SEEALSO'] : GetMessage('T_SEEALSO')) ?></h4>
-            <div class="row chars">
-                <div class="col-md-12">
-                    <?
-                    $GLOBALS['arrFilterLinked'] = array('=ID' => $arResult["SEE_ALSO"]);
+            <?
+            $GLOBALS['arrFilterLinked'] = array('=ID' => $arResult["SEE_ALSO"]);
 
-                    $APPLICATION->IncludeComponent(
-                            "bitrix:news.list",
-                            "see-also",
-                            array(
-                                    "FILTER_NAME" => "arrFilterLinked",
-                                    "IBLOCK_ID" => 17,
-                                    "NEWS_COUNT" => 5,
-                                    "CACHE_TYPE" => $arParams["CACHE_TYPE"],
-                                    "CACHE_TIME" => $arParams["CACHE_TIME"],
-                                    "CACHE_FILTER" => $arParams["CACHE_FILTER"],
-                                    "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-                                    "INCLUDE_SUBSECTIONS" => "N",
-                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-                                    "SHOW_DETAIL_LINK" => $arParams["SHOW_DETAIL_LINK"],
-                            ),
-                            $component
-                    );
+            $APPLICATION->IncludeComponent(
+                    "bitrix:news.list",
+                    "see-also",
+                    array(
+                            "FILTER_NAME" => "arrFilterLinked",
+                            "IBLOCK_ID" => 17,
+                            "NEWS_COUNT" => 5,
+                            "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                            "CACHE_TIME" => $arParams["CACHE_TIME"],
+                            "CACHE_FILTER" => $arParams["CACHE_FILTER"],
+                            "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+                            "INCLUDE_SUBSECTIONS" => "N",
+                            "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                            "SHOW_DETAIL_LINK" => $arParams["SHOW_DETAIL_LINK"],
+                    ),
+                    $component
+            );
 
-                    ?>
-                </div>
-            </div>
+            ?>
         </div>
     <? endif; ?>
 
