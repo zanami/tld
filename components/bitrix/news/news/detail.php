@@ -283,16 +283,11 @@ $arElement = CCache::CIblockElement_GetList(array('CACHE' => array('TAG' => CCac
 	}
 	?>
 <?endif;?>
-<div style="clear:both"></div>
-<div class="row">
-	<div class="col-md-6 share">
-		<?if($arParams["USE_SHARE"] == "Y" && $arElement):?>
-			<span class="text"><?=GetMessage('SHARE_TEXT')?></span>
-			<script type="text/javascript" src="//yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
-			<div class="ya-share2" data-services="vkontakte,facebook,twitter,viber,whatsapp,odnoklassniki,moimir"></div>
-		<?endif;?>
+	<div class="pt-10 pb-12 md:pt-12 md:pb-16">
+		<div class="flex justify-center">
+			<a class="inline-flex items-center gap-2 rounded-3xl border border-black/10 px-6 py-4 text-sm font-medium text-accent transition hover:border-accent hover:text-link" href="<?=$arResult['FOLDER'].$arResult['URL_TEMPLATES']['news']?>">
+				<span>&larr;</span>
+				<span><?=GetMessage('BACK_LINK')?></span>
+			</a>
+		</div>
 	</div>
-	<div class="col-md-6">
-		<a class="back-url" href="<?=$arResult['FOLDER'].$arResult['URL_TEMPLATES']['news']?>"><i class="fa fa-chevron-left"></i><?=GetMessage('BACK_LINK')?></a>
-	</div>
-</div>
