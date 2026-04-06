@@ -74,7 +74,7 @@ $frame->setAnimation(true);
                     </div>
                     <?php if ($bDetailLink): ?></a><?php endif; ?>
                 <?php if ($bDetailLink): ?><a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="px-4 py-4"><?php else: ?><div class="px-4 py-4"><?php endif; ?>
-                    <h3 itemprop="name" class="text-xl md:text-xl font-semibold leading-snug text-gray-900">
+                    <h3 itemprop="name" class="text-xl md:text-xl font-semibold leading-snug text-gray-900 sm:line-clamp-2 sm:min-h-[3.7rem]">
                         <?= $arItem['NAME'] ?>
                     </h3>
 
