@@ -409,6 +409,9 @@
   .-mx-2 {
     margin-inline: calc(var(--spacing) * -2);
   }
+  .-mx-4 {
+    margin-inline: calc(var(--spacing) * -4);
+  }
   .mx-6 {
     margin-inline: calc(var(--spacing) * 6);
   }
@@ -1240,6 +1243,9 @@
   .py-\[6px\] {
     padding-block: 6px;
   }
+  .pt-0 {
+    padding-top: calc(var(--spacing) * 0);
+  }
   .pt-1 {
     padding-top: calc(var(--spacing) * 1);
   }
@@ -1255,8 +1261,14 @@
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
   }
+  .pt-12 {
+    padding-top: calc(var(--spacing) * 12);
+  }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
+  }
+  .pb-0 {
+    padding-bottom: calc(var(--spacing) * 0);
   }
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
@@ -2130,6 +2142,11 @@
       width: auto;
     }
   }
+  .lg\:w-full {
+    @media (width >= 960px) {
+      width: 100%;
+    }
+  }
   .lg\:max-w-full {
     @media (width >= 960px) {
       max-width: 100%;
@@ -2197,6 +2214,11 @@
   .lg\:px-0 {
     @media (width >= 960px) {
       padding-inline: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:px-4 {
+    @media (width >= 960px) {
+      padding-inline: calc(var(--spacing) * 4);
     }
   }
   .lg\:px-8 {
@@ -2280,6 +2302,16 @@
   .xl\:grid-cols-\[minmax\(0\,1fr\)_24rem\] {
     @media (width >= 1140px) {
       grid-template-columns: minmax(0,1fr) 24rem;
+    }
+  }
+  .xl\:px-6 {
+    @media (width >= 1140px) {
+      padding-inline: calc(var(--spacing) * 6);
+    }
+  }
+  .\32 xl\:ml-20 {
+    @media (width >= 1320px) {
+      margin-left: calc(var(--spacing) * 20);
     }
   }
   .dark\:block {

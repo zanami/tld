@@ -1,8 +1,8 @@
-<section class="py-12 bg-neutral-200">
+<section class="pb-12 bg-neutral-200">
     <div class="container mx-auto px-4">
         <!-- Заголовок блока -->
         <div class="text-center">
-            <h2 class="text-3xl md:text-5xl tracking-tight mt-12">
+            <h2 class="text-3xl md:text-5xl tracking-tight pt-12">
                 Продажа и сервис вилочных погрузчиков
             </h2>
             <p class="mt-4 text-base md:text-xl text-black/80">
