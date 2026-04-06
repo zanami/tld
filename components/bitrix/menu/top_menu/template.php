@@ -6,11 +6,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
  */
 $previousLevel = 0;
 ?>
-<div class="flex items-center justify-between w-full px-4">
-    <div>
+<div class="flex flex-1 items-center justify-end">
+    <div class="relative flex items-center justify-end">
         <!-- Бургер -->
         <button id="navbarToggler"
-                class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                class="absolute right-0 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
                 type="button" aria-controls="navbarCollapse" aria-expanded="false">
             <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-accent"></span>
             <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-accent"></span>
@@ -19,9 +19,9 @@ $previousLevel = 0;
 
         <!-- Навигация -->
         <nav id="navbarCollapse"
-             class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 shadow-lg
-                lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent dark:lg:bg-transparent lg:py-0 lg:px-4 lg:shadow-none xl:px-6">
-            <ul class="block lg:flex 2xl:ml-20">
+             class="absolute right-0 top-full hidden w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 shadow-lg
+                lg:static lg:block lg:w-auto lg:max-w-full lg:bg-transparent dark:lg:bg-transparent lg:py-0 lg:px-0 lg:shadow-none">
+            <ul class="block lg:flex lg:justify-end">
                 <?php foreach ($arResult as $i => $arItem): ?>
                 <?php
                 // Закрываем уровни если поднимаемся

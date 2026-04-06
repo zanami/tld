@@ -65,9 +65,9 @@ $siteName = "БТ	Машинери";
 	<? $APPLICATION->ShowPanel() ?>
 
     <header class="flex items-center w-full bg-transparent ud-header <?= $headerClass ?> <?= $hasBxPanel ? 'with-bx-panel' : '' ?>">
-        <div class="container mx-auto">
-            <div class="relative flex items-center justify-between -mx-4">
-                <div class="max-w-full px-4 w-60">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between">
+                <div class="max-w-full w-60 shrink-0">
                     <a href="<?= SITE_DIR ?>" class="block w-full py-0 navbar-logo">
                         <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
                                 alt="logo"
@@ -131,4 +131,3 @@ $siteName = "БТ	Машинери";
     <?php
     $APPLICATION->ShowViewContent('AFTER_HEADER');
     ?>
-
