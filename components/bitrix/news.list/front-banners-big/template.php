@@ -27,6 +27,9 @@ $hasSlider = $itemsCount > 1;
                         ? $arItem['PREVIEW_PICTURE']['SRC']
                         : '';
 
+                    $bannerType = (string)($arItem['PROPERTIES']['BANNERTYPE']['VALUE_XML_ID'] ?? '');
+                    $isOnlyImage = $bannerType === 'T1' || $bannerType === '';
+
                     $detailLink = trim((string)$arItem['DETAIL_PAGE_URL']);
                     $linkImg = trim((string)($arItem['PROPERTIES']['LINKIMG']['VALUE'] ?? ''));
                     $titleLink = $linkImg ?: $detailLink;
@@ -52,76 +55,81 @@ $hasSlider = $itemsCount > 1;
                                 aria-hidden="true"
                             ></div>
                             <div
-                                class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25"
+                                class="absolute inset-0 bg-[linear-gradient(10deg,rgba(0,0,0,1)_0%,rgba(87,199,133,0)_66%,rgba(255,255,255,0)_100%)]"
                                 aria-hidden="true"
                             ></div>
-                            <div
-                                class="absolute inset-y-0 right-0 w-full bg-gradient-to-t from-black/15 via-transparent to-transparent lg:w-1/2"
-                                aria-hidden="true"
-                            ></div>
+                            <?php if ($isOnlyImage && $titleLink): ?>
+                                <a
+                                    href="<?= htmlspecialcharsbx($titleLink) ?>"
+                                    class="absolute inset-0 z-20"
+                                    aria-label="<?= htmlspecialcharsbx($arItem['NAME']) ?>"
+                                ></a>
+                            <?php endif; ?>
 
-                            <div class="relative z-10 container mx-auto flex min-h-[420px] items-center px-4 py-16 lg:min-h-[540px]">
-                                <div class="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,1fr)_28rem]">
-                                    <div class="max-w-3xl <?= $textClass ?>">
-                                        <?php if ($titleLink): ?>
-                                            <a href="<?= htmlspecialcharsbx($titleLink) ?>" class="block no-underline">
-                                        <?php endif; ?>
-                                            <h2 class="max-w-2xl text-4xl font-semibold tracking-tight lg:text-6xl">
-                                                <?= htmlspecialcharsbx($arItem['NAME']) ?>
-                                            </h2>
-                                        <?php if ($titleLink): ?>
-                                            </a>
-                                        <?php endif; ?>
-
-                                        <?php if (strlen((string)$arItem['PREVIEW_TEXT'])): ?>
-                                            <div class="mt-5 max-w-2xl text-lg font-thin leading-8 <?= $secondaryTextClass ?>">
-                                                <?= $arItem['PREVIEW_TEXT'] ?>
-                                            </div>
-                                        <?php endif; ?>
-
-                                        <?php if ($button1Text || $button2Text): ?>
-                                            <div class="mt-8 flex flex-wrap gap-4">
-                                                <?php if ($button1Text && $button1Link): ?>
-                                                    <a
-                                                        href="<?= htmlspecialcharsbx($button1Link) ?>"
-                                                        class="inline-block rounded-md bg-accent px-10 py-4 text-base font-medium uppercase text-gray-950 transition hover:bg-link hover:text-white"
-                                                    >
-                                                        <?= htmlspecialcharsbx($button1Text) ?>
-                                                    </a>
-                                                <?php endif; ?>
-                                                <?php if ($button2Text && $button2Link): ?>
-                                                    <a
-                                                        href="<?= htmlspecialcharsbx($button2Link) ?>"
-                                                        class="inline-block rounded-md border border-white/40 bg-white/10 px-10 py-4 text-base font-medium uppercase text-white transition hover:border-white hover:bg-white/20"
-                                                    >
-                                                        <?= htmlspecialcharsbx($button2Text) ?>
-                                                    </a>
-                                                <?php endif; ?>
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-
-                                    <div class="hidden lg:block">
-                                        <?php if ($foregroundSrc): ?>
+                            <?php if (!$isOnlyImage): ?>
+                                <div class="relative z-10 container mx-auto flex min-h-[420px] items-center px-4 py-16 lg:min-h-[540px]">
+                                    <div class="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,1fr)_28rem]">
+                                        <div class="max-w-3xl <?= $textClass ?>">
                                             <?php if ($titleLink): ?>
-                                                <a href="<?= htmlspecialcharsbx($titleLink) ?>" class="block">
+                                                <a href="<?= htmlspecialcharsbx($titleLink) ?>" class="block no-underline">
                                             <?php endif; ?>
-                                                <div class="ml-auto max-w-[28rem] overflow-hidden rounded-3xl border border-white/10 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
-                                                    <img
-                                                        src="<?= htmlspecialcharsbx($foregroundSrc) ?>"
-                                                        alt="<?= htmlspecialcharsbx($arItem['NAME']) ?>"
-                                                        title="<?= htmlspecialcharsbx($arItem['NAME']) ?>"
-                                                        class="h-[22rem] w-full rounded-[1.3rem] object-cover"
-                                                        loading="<?= $index === 0 ? 'eager' : 'lazy' ?>"
-                                                    />
-                                                </div>
+                                                <h2 class="max-w-2xl text-4xl font-semibold tracking-tight lg:text-6xl">
+                                                    <?= htmlspecialcharsbx($arItem['NAME']) ?>
+                                                </h2>
                                             <?php if ($titleLink): ?>
                                                 </a>
                                             <?php endif; ?>
-                                        <?php endif; ?>
+
+                                            <?php if (strlen((string)$arItem['PREVIEW_TEXT'])): ?>
+                                                <div class="mt-5 max-w-2xl text-lg font-thin leading-8 <?= $secondaryTextClass ?>">
+                                                    <?= $arItem['PREVIEW_TEXT'] ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ($button1Text || $button2Text): ?>
+                                                <div class="mt-8 flex flex-wrap gap-4">
+                                                    <?php if ($button1Text && $button1Link): ?>
+                                                        <a
+                                                            href="<?= htmlspecialcharsbx($button1Link) ?>"
+                                                            class="inline-block rounded-md bg-accent px-10 py-4 text-base font-medium uppercase text-gray-950 transition hover:bg-link hover:text-white"
+                                                        >
+                                                            <?= htmlspecialcharsbx($button1Text) ?>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                    <?php if ($button2Text && $button2Link): ?>
+                                                        <a
+                                                            href="<?= htmlspecialcharsbx($button2Link) ?>"
+                                                            class="inline-block rounded-md border border-white/40 bg-white/10 px-10 py-4 text-base font-medium uppercase text-white transition hover:border-white hover:bg-white/20"
+                                                        >
+                                                            <?= htmlspecialcharsbx($button2Text) ?>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+
+                                        <div class="hidden lg:block">
+                                            <?php if ($foregroundSrc): ?>
+                                                <?php if ($titleLink): ?>
+                                                    <a href="<?= htmlspecialcharsbx($titleLink) ?>" class="block">
+                                                <?php endif; ?>
+                                                    <div class="ml-auto max-w-[28rem] overflow-hidden rounded-3xl border border-white/10 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
+                                                        <img
+                                                            src="<?= htmlspecialcharsbx($foregroundSrc) ?>"
+                                                            alt="<?= htmlspecialcharsbx($arItem['NAME']) ?>"
+                                                            title="<?= htmlspecialcharsbx($arItem['NAME']) ?>"
+                                                            class="h-[22rem] w-full rounded-[1.3rem] object-cover"
+                                                            loading="<?= $index === 0 ? 'eager' : 'lazy' ?>"
+                                                        />
+                                                    </div>
+                                                <?php if ($titleLink): ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -166,8 +174,8 @@ $hasSlider = $itemsCount > 1;
                         crossFade: true
                     },
                     autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false
+                        delay: 55000,
+                        disableOnInteraction: true
                     },
                     pagination: {
                         el: root.querySelector('.swiper-pagination'),
