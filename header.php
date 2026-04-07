@@ -69,9 +69,9 @@ $siteName = "БТ	Машинери";
 
     <header class="flex items-center w-full bg-transparent ud-header <?= $headerClass ?> <?= $hasBxPanel ? 'with-bx-panel' : '' ?>">
         <div class="w-full px-4 sm:px-6 lg:px-8">
-            <div class="relative flex items-center justify-between">
+            <div class="relative flex items-start justify-between">
                 <div class="max-w-full w-60 shrink-0">
-                    <a href="<?= SITE_DIR ?>" class="block w-full py-0 navbar-logo">
+                    <a href="<?= SITE_DIR ?>" class="block w-48 py-4 navbar-logo">
 	                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
 	                                alt="logo"
 	                                class="<?= $defaultLogoClass ?>"

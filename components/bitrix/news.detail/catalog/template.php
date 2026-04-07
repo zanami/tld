@@ -229,7 +229,7 @@
                     "see-also",
                     array(
                             "FILTER_NAME" => "arrFilterLinked",
-                            "IBLOCK_ID" => 17,
+                            "IBLOCK_ID" => 16,
                             "NEWS_COUNT" => 5,
                             "CACHE_TYPE" => $arParams["CACHE_TYPE"],
                             "CACHE_TIME" => $arParams["CACHE_TIME"],

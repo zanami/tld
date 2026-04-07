@@ -47,17 +47,14 @@ $hasSlider = $itemsCount > 1;
                     <div class="<?= $hasSlider ? 'swiper-slide' : '' ?>">
                         <div
                             id="<?= $this->GetEditAreaId($arItem['ID']) ?>"
-                            class="relative min-h-[420px] overflow-hidden lg:min-h-[540px]"
+                            class="relative min-h-[540px] overflow-hidden lg:min-h-[580px]"
                         >
                             <div
                                 class="absolute inset-0 bg-center bg-cover"
                                 style="background-image:url('<?= htmlspecialcharsbx($backgroundSrc) ?>');"
                                 aria-hidden="true"
                             ></div>
-                            <div
-                                class="absolute inset-0 bg-[linear-gradient(10deg,rgba(0,0,0,1)_0%,rgba(87,199,133,0)_66%,rgba(255,255,255,0)_100%)]"
-                                aria-hidden="true"
-                            ></div>
+                            <div class="front-banner-gradient absolute inset-0" aria-hidden="true"></div>
                             <?php if ($isOnlyImage && $titleLink): ?>
                                 <a
                                     href="<?= htmlspecialcharsbx($titleLink) ?>"
@@ -67,13 +64,13 @@ $hasSlider = $itemsCount > 1;
                             <?php endif; ?>
 
                             <?php if (!$isOnlyImage): ?>
-                                <div class="relative z-10 container mx-auto flex min-h-[420px] items-center px-4 py-16 lg:min-h-[540px]">
+                                <div class="relative z-10 container mx-auto flex min-h-[540px] items-center px-4 py-24 lg:min-h-[580px]">
                                     <div class="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,1fr)_28rem]">
                                         <div class="max-w-3xl <?= $textClass ?>">
                                             <?php if ($titleLink): ?>
                                                 <a href="<?= htmlspecialcharsbx($titleLink) ?>" class="block no-underline">
                                             <?php endif; ?>
-                                                <h2 class="max-w-2xl text-4xl font-semibold tracking-tight lg:text-6xl">
+                                                <h2 class="max-w-2xl text-4xl font-semibold tracking-tight lg:text-5xl">
                                                     <?= htmlspecialcharsbx($arItem['NAME']) ?>
                                                 </h2>
                                             <?php if ($titleLink): ?>
@@ -190,5 +187,17 @@ $hasSlider = $itemsCount > 1;
         </script>
     <?php endif; ?>
 <?php endif; ?>
+
+<style>
+    .front-banner-gradient {
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.5) 62%, rgba(0, 0, 0, 0.32) 100%);
+    }
+
+    @media (min-width: 960px) {
+        .front-banner-gradient {
+            background-image: linear-gradient(10deg, rgba(0, 0, 0, 1) 0%, rgba(87, 199, 133, 0) 76%, rgba(255, 255, 255, 0) 85%);
+        }
+    }
+</style>
 
 <?php $frame->end(); ?>

@@ -9,10 +9,10 @@ $previousLevel = 0;
 $isMainPage = $APPLICATION->GetProperty('IS_MAIN_PAGE') === 'Y';
 ?>
 <div class="flex flex-1 items-center justify-end">
-    <div class="relative flex items-center justify-end">
+    <div class="relative flex items-start justify-end">
         <!-- Бургер -->
         <button id="navbarToggler"
-                class="absolute right-0 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                class="block rounded-lg my-5 px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
                 type="button" aria-controls="navbarCollapse" aria-expanded="false">
             <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-accent"></span>
             <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark dark:bg-accent"></span>
@@ -21,8 +21,8 @@ $isMainPage = $APPLICATION->GetProperty('IS_MAIN_PAGE') === 'Y';
 
         <!-- Навигация -->
         <nav id="navbarCollapse"
-             class="absolute right-0 top-full hidden w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 shadow-lg
-                lg:static lg:block lg:w-auto lg:max-w-full lg:bg-transparent dark:lg:bg-transparent lg:py-0 lg:px-0 lg:shadow-none">
+             class="absolute right-0 top-full hidden w-full max-w-[250px] min-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 shadow-lg
+                lg:my-5 lg:static lg:block lg:w-auto lg:max-w-full lg:bg-transparent dark:lg:bg-transparent lg:py-0 lg:px-0 lg:shadow-none">
             <ul class="block lg:flex lg:justify-end">
                 <?php foreach ($arResult as $i => $arItem): ?>
                 <?php
@@ -50,7 +50,7 @@ $isMainPage = $APPLICATION->GetProperty('IS_MAIN_PAGE') === 'Y';
                     "lg:inline-flex lg:py-2 lg:px-0";
 
                 // Классы ссылок подуровней (компактные)
-                $subLink = "block px-4 py-2 text-base text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-dark-3";
+                $subLink = "block px-6 py-2 text-base text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-dark-3";
 
                 // Active
                 $active = (!empty($arItem["SELECTED"]) && $isMainPage) ? " text-primary lg:text-primary" : "";
