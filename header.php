@@ -71,7 +71,7 @@ $siteName = "БТ	Машинери";
         <div class="w-full px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-start justify-between">
                 <div class="max-w-full w-60 shrink-0">
-                    <a href="<?= SITE_DIR ?>" class="block w-48 py-4 navbar-logo">
+                    <a href="<?= SITE_DIR ?>" class="block w-40 py-4 navbar-logo">
 	                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/logo/logo.svg"
 	                                alt="logo"
 	                                class="<?= $defaultLogoClass ?>"

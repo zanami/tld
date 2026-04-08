@@ -47,7 +47,7 @@ $hasSlider = $itemsCount > 1;
                     <div class="<?= $hasSlider ? 'swiper-slide' : '' ?>">
                         <div
                             id="<?= $this->GetEditAreaId($arItem['ID']) ?>"
-                            class="relative min-h-[540px] overflow-hidden lg:min-h-[580px]"
+                            class="relative min-h-[340px] overflow-hidden lg:min-h-[540px]"
                         >
                             <div
                                 class="absolute inset-0 bg-center bg-cover"
@@ -64,7 +64,7 @@ $hasSlider = $itemsCount > 1;
                             <?php endif; ?>
 
                             <?php if (!$isOnlyImage): ?>
-                                <div class="relative z-10 container mx-auto flex min-h-[540px] items-center px-4 py-24 lg:min-h-[580px]">
+                                <div class="relative z-10 container mx-auto flex min-h-[340px] items-center px-4 py-24 lg:min-h-[540px]">
                                     <div class="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,1fr)_28rem]">
                                         <div class="max-w-3xl <?= $textClass ?>">
                                             <?php if ($titleLink): ?>

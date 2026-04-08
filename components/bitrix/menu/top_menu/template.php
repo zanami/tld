@@ -45,7 +45,7 @@ $isMainPage = $APPLICATION->GetProperty('IS_MAIN_PAGE') === 'Y';
                     ? "text-dark dark:text-white group-hover:text-primary lg:text-body-color dark:lg:text-amber-500"
                     : "text-accent group-hover:text-accent lg:text-accent";
 
-                $topLink = "flex py-2 mx-6 uppercase text-lg font-medium ud-menu-scroll {$topLinkColor} lg:mr-0 ".
+                $topLink = "flex py-2 mx-6 uppercase text-xl font-medium ud-menu-scroll {$topLinkColor} lg:mr-0 ".
                     ($isFirstTop ? "" : "lg:ml-4 xl:ml-6 ").
                     "lg:inline-flex lg:py-2 lg:px-0";
 

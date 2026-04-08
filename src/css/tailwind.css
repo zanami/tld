@@ -589,6 +589,9 @@
   .h-\[22rem\] {
     height: 22rem;
   }
+  .h-\[340px\] {
+    height: 340px;
+  }
   .h-auto {
     height: auto;
   }
@@ -603,6 +606,9 @@
   }
   .min-h-80 {
     min-height: calc(var(--spacing) * 80);
+  }
+  .min-h-\[340px\] {
+    min-height: 340px;
   }
   .min-h-\[420px\] {
     min-height: 420px;
@@ -645,6 +651,9 @@
   }
   .w-28 {
     width: calc(var(--spacing) * 28);
+  }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
   }
   .w-48 {
     width: calc(var(--spacing) * 48);
