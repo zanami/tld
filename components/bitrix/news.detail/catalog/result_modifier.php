@@ -46,6 +46,45 @@ if($arParams['DISPLAY_PICTURE'] != 'N'){
 		}
 	}
 }
+
+$parsePrice = function ($value) {
+    if (is_array($value)) {
+        $value = reset($value);
+    }
+
+    $value = html_entity_decode((string)$value, ENT_QUOTES, SITE_CHARSET ?: 'UTF-8');
+    $value = str_replace([' ', "\xc2\xa0"], '', $value);
+    $value = preg_replace('/[^\d,.\-]/', '', $value);
+    if (preg_match('/[,.]\d{1,2}$/', $value, $matches)) {
+        $decimalSeparator = $matches[0][0];
+        $thousandsSeparator = $decimalSeparator == ',' ? '.' : ',';
+        $value = str_replace($thousandsSeparator, '', $value);
+        $value = str_replace($decimalSeparator, '.', $value);
+    } else {
+        $value = str_replace([',', '.'], '', $value);
+    }
+
+    return (float)$value;
+};
+
+$price = $parsePrice($arResult['DISPLAY_PROPERTIES']['PRICE']['VALUE']);
+$leasingRate = 1.18;
+$leasingDefaultTerm = 12;
+$leasingDefaultAdvance = 20;
+$leasingAdvanceAmount = round($price * $leasingDefaultAdvance / 100);
+$leasingMonthlyPayment = round(($price - $leasingAdvanceAmount) * $leasingRate / $leasingDefaultTerm);
+$arResult['LEASING_CALCULATOR'] = [
+    'SHOW' => $price > 0,
+    'PRICE' => $price,
+    'RATE' => $leasingRate,
+    'TERMS' => [12, 24, 36],
+    'ADVANCES' => [20, 30, 50],
+    'DEFAULT_TERM' => $leasingDefaultTerm,
+    'DEFAULT_ADVANCE' => $leasingDefaultAdvance,
+    'ADVANCE_AMOUNT' => $leasingAdvanceAmount,
+    'MONTHLY_PAYMENT' => $leasingMonthlyPayment,
+];
+
 if($arResult['DISPLAY_PROPERTIES']){
 	$arResult['CHARACTERISTICS'] = array();
 	$arResult['VIDEO'] = array();

@@ -1,6 +1,12 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?><? $this->setFrameMode(
         true
 ); ?>
+<?
+$leasingCalculator = $arResult['LEASING_CALCULATOR'];
+$formatLeasingPrice = function ($value) {
+    return number_format((float)$value, 0, ',', ' ');
+};
+?>
 
 <div class="container mb-12 mx-auto px-4">
     <? if (strlen($arResult['FIELDS']['PREVIEW_TEXT'])): ?>
@@ -111,6 +117,44 @@
                             <? if ($arResult['DISPLAY_PROPERTIES']['PRICEOLD']['VALUE']): ?>
                                 <div class="price_old text-xl font-thin leading-8"><?= GetMessage('DISCOUNT_PRICE') ?>
                                     &nbsp;<?= $arResult['DISPLAY_PROPERTIES']['PRICEOLD']['VALUE'] ?>
+                                </div>
+                            <? endif; ?>
+                            <? if ($leasingCalculator['SHOW']): ?>
+                                <div class="mt-2 border-t border-gray-200 pt-4" data-leasing-calculator data-price="<?= (float)$leasingCalculator['PRICE'] ?>" data-rate="<?= (float)$leasingCalculator['RATE'] ?>">
+                                    <div class="mb-4 text-xl font-semibold leading-7 text-gray-950"><?= GetMessage('LEASING_CALC_TITLE') ?></div>
+                                    <div class="grid gap-4">
+                                        <div>
+                                            <div class="mb-2 text-sm text-gray-500"><?= GetMessage('LEASING_CALC_TERM') ?></div>
+                                            <div class="flex flex-wrap gap-2">
+                                                <? foreach ($leasingCalculator['TERMS'] as $term): ?>
+                                                    <label class="flex flex-1 items-center justify-center rounded-md border border-gray-200 bg-white px-2 py-2 text-sm font-medium text-gray-950 whitespace-nowrap">
+                                                        <input class="mr-2" type="radio" name="leasing-term-<?= (int)$arResult['ID'] ?>" value="<?= (int)$term ?>" <?= $term == $leasingCalculator['DEFAULT_TERM'] ? 'checked' : '' ?>>
+                                                        <span><?= (int)$term ?> <?= GetMessage('LEASING_CALC_MONTH_SHORT') ?></span>
+                                                    </label>
+                                                <? endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="mb-2 text-sm text-gray-500"><?= GetMessage('LEASING_CALC_ADVANCE') ?></div>
+                                            <div class="flex flex-wrap gap-2">
+                                                <? foreach ($leasingCalculator['ADVANCES'] as $advance): ?>
+                                                    <label class="flex flex-1 items-center justify-center rounded-md border border-gray-200 bg-white px-2 py-2 text-sm font-medium text-gray-950 whitespace-nowrap">
+                                                        <input class="mr-2" type="radio" name="leasing-advance-<?= (int)$arResult['ID'] ?>" value="<?= (int)$advance ?>" <?= $advance == $leasingCalculator['DEFAULT_ADVANCE'] ? 'checked' : '' ?>>
+                                                        <span><?= (int)$advance ?>%</span>
+                                                    </label>
+                                                <? endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 rounded-md bg-gray-50 p-4">
+                                        <div class="text-sm text-gray-500"><?= GetMessage('LEASING_CALC_PAYMENT') ?></div>
+                                        <div class="text-2xl font-semibold leading-8 text-gray-950">
+                                            <span data-leasing-payment><?= $formatLeasingPrice($leasingCalculator['MONTHLY_PAYMENT']) ?></span> <?= GetMessage('LEASING_CALC_RUB_MONTH') ?>
+                                        </div>
+                                        <div class="mt-1 text-sm text-gray-500">
+                                            <?= GetMessage('LEASING_CALC_ADVANCE_SUM') ?> <span data-leasing-advance><?= $formatLeasingPrice($leasingCalculator['ADVANCE_AMOUNT']) ?></span> <?= GetMessage('LEASING_CALC_RUB') ?>
+                                        </div>
+                                    </div>
                                 </div>
                             <? endif; ?>
                         </div>
@@ -315,6 +359,56 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('[data-leasing-calculator]').forEach(function (calculator) {
+            let price = Number(calculator.getAttribute('data-price')) || 0;
+            const rate = Number(calculator.getAttribute('data-rate')) || 1;
+            const paymentNode = calculator.querySelector('[data-leasing-payment]');
+            const advanceNode = calculator.querySelector('[data-leasing-advance]');
+
+            function formatPrice(value) {
+                return Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            }
+
+            function parsePrice(value) {
+                value = String(value || '').replace(/\s|\u00a0/g, '').replace(/[^\d,.\-]/g, '');
+
+                if (/[,.]\d{1,2}$/.test(value)) {
+                    const decimalSeparator = value.match(/[,.]\d{1,2}$/)[0].charAt(0);
+                    const thousandsSeparator = decimalSeparator === ',' ? '.' : ',';
+                    value = value.split(thousandsSeparator).join('');
+                    value = value.replace(decimalSeparator, '.');
+                } else {
+                    value = value.replace(/[,.]/g, '');
+                }
+
+                return Number(value) || 0;
+            }
+
+            function updateLeasing() {
+                if (!price) {
+                    const priceNode = calculator.closest('.price').querySelector('.price_new');
+                    price = parsePrice(priceNode && priceNode.textContent);
+                }
+
+                const termInput = calculator.querySelector('input[name^="leasing-term-"]:checked');
+                const advanceInput = calculator.querySelector('input[name^="leasing-advance-"]:checked');
+                const term = Number(termInput && termInput.value) || 12;
+                const advancePercent = Number(advanceInput && advanceInput.value) || 20;
+                const advance = price * advancePercent / 100;
+                const payment = (price - advance) * rate / term;
+
+                if (paymentNode) {
+                    paymentNode.textContent = formatPrice(payment);
+                }
+                if (advanceNode) {
+                    advanceNode.textContent = formatPrice(advance);
+                }
+            }
+
+            calculator.addEventListener('change', updateLeasing);
+            updateLeasing();
+        });
+
         document.querySelectorAll('.gallery[data-gallery]').forEach(function (gallery) {
             const mainImage = gallery.querySelector('[data-main-image]');
             const thumbs = Array.from(gallery.querySelectorAll('[data-thumb]'));
