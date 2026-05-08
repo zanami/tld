@@ -10,6 +10,7 @@ $MESS["LEASING_CALC_TERM"] = "Срок лизинга";
 $MESS["LEASING_CALC_ADVANCE"] = "Аванс";
 $MESS["LEASING_CALC_PAYMENT"] = "Ежемесячный платеж";
 $MESS["LEASING_CALC_ADVANCE_SUM"] = "Сумма аванса:";
+$MESS["LEASING_CALC_NOTE"] = "* Результат является предварительным. Окончательная стоимость рассчитывается персонально.";
 $MESS["LEASING_CALC_MONTH_SHORT"] = "мес.";
 $MESS["LEASING_CALC_RUB"] = "руб.";
 $MESS["LEASING_CALC_RUB_MONTH"] = "руб./мес.";

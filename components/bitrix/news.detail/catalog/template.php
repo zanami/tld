@@ -155,6 +155,9 @@ $formatLeasingPrice = function ($value) {
                                             <?= GetMessage('LEASING_CALC_ADVANCE_SUM') ?> <span data-leasing-advance><?= $formatLeasingPrice($leasingCalculator['ADVANCE_AMOUNT']) ?></span> <?= GetMessage('LEASING_CALC_RUB') ?>
                                         </div>
                                     </div>
+                                    <div class="mt-3 mb-4 text-sm leading-5 text-gray-500">
+                                        <?= GetMessage('LEASING_CALC_NOTE') ?>
+                                    </div>
                                 </div>
                             <? endif; ?>
                         </div>
